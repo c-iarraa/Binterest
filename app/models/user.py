@@ -21,8 +21,8 @@ class User(db.Model, UserMixin):
     updatedAt = db.Column(db.DateTime, nullable=False, server_default=func.now())
 
 
-    pins = db.relationship("Pin", back_populates="user")
-    pinboards = db.relationship("PinBoard", back_populates="user")
+    # pins = db.relationship("Pin", back_populates="users")
+    # pinboards = db.relationship("PinBoard", back_populates="users")
 
     @property
     def password(self):

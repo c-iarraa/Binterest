@@ -21,11 +21,21 @@ def seed_users():
         username='blaze', email='blaze@aa.io', password='password', first_name='Blaze', last_name='Emerius', age=27)
     tiara = User(
         username='tiara', email='tiara@aa.io', password='password', first_name='Tiara', last_name='Louelle', age=28)
+    khyree = User(
+        username='khyree', email='khyree@aa.io', password='password', first_name='Khyree', last_name='Kingxz', age=29)
+    julian = User(
+        username='julian', email='julian@aa.io', password='password', first_name='Julian', last_name='Neal', age=30)
+    nya = User(
+        username='nya', email='nya@aa.io', password='password', first_name='Nya', last_name='Jade', age=31)
+    emmie = User(
+        username='emmie', email='emmie@aa.io', password='password', first_name='Emmie', last_name='Jade', age=32)
+    elijah = User(
+        username='elijah', email='elijah@aa.io', password='password', first_name='Elijah', last_name='James', age=33)
 
 
 
     userList = [demo, marnie, bobbie, george, alex, dior, ryder,
-                blaze, tiara]
+                blaze, tiara, khyree, julian, nya, emmie, elijah]
 
     add_users = [db.session.add(user) for user in userList]
     # db.session.add(demo)
