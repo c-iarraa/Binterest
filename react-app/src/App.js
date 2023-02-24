@@ -5,6 +5,8 @@ import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
+import CreatePin from "./components/CreatePinPage";
+import AllPins from "./components/AllPins";
 
 function App() {
   const dispatch = useDispatch();
@@ -24,6 +26,12 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
+          <Route path="/pins/new">
+            <CreatePin />
+          </Route>
+          <Route exact path='/'>
+           <AllPins />
+         </Route>
         </Switch>
       )}
     </>

@@ -43,60 +43,33 @@ def get_pins_by_pin_id(id):
 
 
 # Create a pin
-    @pin_routes.route('/<int:id>', methods=['POST', 'GET'])
-    # @login_required
-    def create_pin(id):
+@pin_routes.route('/<int:id>/create', methods=['POST'])
+# @login_required
+def create_pin(id):
+    print('!!!!!!!!!!')
+    print('inside create pin route', id)
+    # create an instance of the pin form
+    form = NewPin()
+    form['csrf_token'].data = request.cookies['csrf_token']
 
-        # create an instance of the pin form
-        form = NewPin()
-        form['csrf_token'].data = request.cookies['csrf_token']
+    print('made instance of pin form', form)
+    if form.validate_on_submit():
+        # create new instance of pin model and set id to owner of the pin
+        new_pin = Pin(owner_id = id)
+        print('backend new pin route', new_pin)
 
-        if form.validate_on_submit() :
-            # create new instance of pin model and set id to owner of the pin
-            new_pin = Pin(owner_id = id)
+        # copy the data onto fields on the pin object.
+        form.populate_obj(new_pin)
+        print('just populated new pin', form.data)
+        # edit/add pin in the database then commit to db
+        db.session.add(new_pin)
+        print('adding new pin to db')
+        db.session.commit()
+        # return new pin in dictionary
+        return new_pin.to_dict()
 
-            # copy the data onto fields on the pin object.
-            form.populate_obj(new_pin)
-            # edit/add pin in the database then commit to db
-            db.session.add(new_pin)
-            db.session.commit()
-            # return new pin in dictionary
-            return new_pin.to_dict()
-
-        if form.errors:
-            return form.errors
-
-        # if form.validate_on_submit():
-        #     new_pin = Pin(
-        #     owner_id = int(current_owner.id),
-        #     title = request.get_json()["title"],
-        #     description = request.get_json()["description"],
-        #     imageUrl = request.get_json()["imageUrl"],
-        #     )
-
-        #     db.session.add(new_pin)
-        #     db.session.commit()
-        #     return new_pin.to_dict()
-
-        # if form.errors:
-        #     return form.errors
-
-
-
-# Add an Image to a pin based on the pin's id
-# @pin_routes.route('/<int:id>/images', methods=['POST', 'GET'])
-# # @login_required
-# def pin_image(id):
-
-#     pin = Pin.query.get(id)
-
-#     if not pin:
-#       return {"errors": ["pin could not be found"]}, 404
-
-#     form = NewPin()
-#     form["csrf_token"].data = request.cookies["csrf_token"]
-
-
+    if form.errors:
+        return form.errors
 
 
 

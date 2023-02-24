@@ -33,12 +33,12 @@ class Pin(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     owner_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
-    board_id = db.Column(db.Integer, nullable=False)
+    # board_id = db.Column(db.Integer, nullable=False)
      # board_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('pinboards.id')), nullable=False)
     title = db.Column(db.String(100), nullable=False)
-    description = db.Column(db.String(300), nullable=False)
+    description = db.Column(db.String(500), nullable=False)
     imageUrl = db.Column(db.String(255), nullable=False)
-    # destinationLink = db.Column(db.String(255), nullable=False)
+    destinationLink = db.Column(db.String(255), nullable=False)
     createdAt = db.Column(db.DateTime, nullable=False, server_default=func.now())
     updatedAt = db.Column(db.DateTime, nullable=False, server_default=func.now())
 
@@ -58,7 +58,7 @@ class Pin(db.Model):
             'title': self.title,
             'description': self.description,
             'imageUrl': self.imageUrl,
-            # 'destinationLink': self.destinationLink,
+            'destinationLink': self.destinationLink,
             'createdAt': self.createdAt,
             'updatedAt': self.updatedAt,
         }
