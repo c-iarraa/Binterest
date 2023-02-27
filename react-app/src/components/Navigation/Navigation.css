@@ -1,7 +1,226 @@
+.a {
+  text-decoration: none;
+}
+
 .profile-dropdown {
   position: absolute;
 }
 
 .hidden {
   display: none;
+}
+
+.profile-dropdown {
+  position: absolute;
+}
+
+a.visited {
+  text-decoration: none;
+  color: black;
+}
+
+.hidden {
+  display: none;
+}
+
+.nav {
+  width: auto;
+  max-width: 90rem;
+  margin: 0 auto;
+}
+
+.search-button {
+  background-color: rgb(232,232,232);
+  border: transparent solid;
+  height: 100%;
+  padding: none;
+  cursor: pointer;
+  border-radius: 8px;
+  position: absolute;
+  right: 0;
+}
+
+.search-input-values {
+  border: transparent solid;
+  padding: 8px 50px 8px 8px;
+  position: absolute;
+  top: 6.5px;
+  left: 20px;
+  width: 365px;
+  background-color: rgb(232,232,232);
+}
+
+.search-input-values:focus{
+  outline: none;
+}
+
+.log-out-div-button{
+  padding-top: 8px;
+  border-top: 1px solid rgb(211,211,211);
+}
+
+.search-bar-form {
+  height: 45px;
+  background-color: rgb(232,232,232);
+  border-radius: 20px;
+}
+
+.nav-search-container {
+  /* box-shadow: 5px 1px 12px rgb(166, 162, 162); */
+  width: 150px;
+  position: relative;
+  margin: 4px 10px 0px 5px;
+  border: none;
+  border-radius: 16px;
+  width: 500px;
+}
+
+.fa-magnifying-glass {
+  border-radius: 20px
+}
+
+.fa-solid {
+  color: 	rgb(128,128,128);
+}
+
+.fa-user {
+  color: white;
+  font-size: 1.3rem;
+}
+
+.navigationBar {
+  font-family: Helvetica;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.navBar-container{
+  padding-left: 20px;
+  padding-right: 20px;
+  /* border-bottom: 1px solid rgb(211,211,211); */
+}
+
+.homeButton {
+  color: black;
+}
+
+.login-button {
+  font-family: Helvetica;
+  text-decoration: none;
+  color: black;
+  border: 1px solid rgb(166, 162, 162);
+  padding: none;
+  border-radius: 4px;
+  width: 50px;
+  position: absolute;
+  background-color: white;
+}
+
+.signup-button {
+  font-family: Helvetica;
+  text-decoration: none;
+  color: white;
+  border: 1px solid red;
+  background-color: red;
+  border-radius: 4px;
+
+}
+
+.logo-img {
+  width: 120px;
+  height:20%;
+  top: 30px;
+}
+
+.profileButton {
+  padding: 15px;
+  margin-top: -5px;
+  margin-left: 4px;
+  border-radius: 50%;
+  border: none;
+  background-color:rgb(232,232,232);
+  color: grey;
+  cursor: pointer;
+}
+
+.navBar-right {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  width: 180px
+}
+
+.user-logout-button {
+  border: none;
+  background-color: white;
+  font-size: 16px
+}
+
+.fa-solid.fa-arrow-right-from-bracket {
+  color: black
+}
+
+
+.profile-dropdown {
+  font-size: 16px;
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+  width: 100px;
+  padding: 10px;
+  box-shadow: 5px 1px 12px rgb(166, 162, 162);
+  right: 10px;
+  cursor: pointer;
+}
+
+.create-buttons {
+  padding: 15px;
+  margin-top: -5px;
+  margin-left: 4px;
+  border-radius: 50%;
+  border: none;
+  color: black;
+  background-color: transparent;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.fa-circle-chevron-down {
+  color: black;
+  padding: 10px
+}
+
+.create-dropdown {
+  position: absolute;
+}
+
+.create-pin-link {
+  font-size: 16px;
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+  width: 100px;
+  padding: 10px;
+  box-shadow: 5px 1px 12px rgb(166, 162, 162);
+  left: 50px;
+  text-decoration: none;
+  color: black;
+  right: -50px
+}
+
+.create-pin-link:hover {
+  background-color: rgb(232,232,232)
+}
+
+.logout-button {
+  border: transparent;
+  background-color: white;
+  font-size: 16px;
+  left: -40px;
 }

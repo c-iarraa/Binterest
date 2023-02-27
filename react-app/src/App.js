@@ -7,6 +7,8 @@ import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import CreatePin from "./components/CreatePinPage";
 import AllPins from "./components/AllPins";
+import UpdatePin from "./components/UpdatePinPage";
+import PinDetails from "./components/PinDetails";
 
 function App() {
   const dispatch = useDispatch();
@@ -28,6 +30,12 @@ function App() {
           </Route>
           <Route path="/pins/new">
             <CreatePin />
+          </Route>
+          <Route path="/pins/:pinId/update">
+            <UpdatePin />
+          </Route>
+          <Route path="/pins/:pinId">
+            <PinDetails />
           </Route>
           <Route exact path='/'>
            <AllPins />

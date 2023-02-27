@@ -1,0 +1,10 @@
+.a.visited {
+    text-decoration: none;
+    color: black;
+}
+
+
+.update-delete-div {
+    display: flex;
+    flex-direction: row;
+}

@@ -38,15 +38,16 @@ const load = (pinList) => ({
 // Create the action creator to delete a pin
 // thunk action creator
 export const deletePin = (pinId) => async dispatch => {
+  console.log(pinId)
     const response = await fetch(`/api/pins/${pinId}`, {
         method: 'DELETE',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({pinId}),
+        body: JSON.stringify(pinId),
       })
-
     if (response.ok){
      // Constant variable to specify the action type (“pins/deletePin”)
       const pin = await response.json()
+      console.log(pin)
       dispatch(remove(pin))
     }
   }
@@ -55,21 +56,21 @@ export const deletePin = (pinId) => async dispatch => {
 // Create the action creator to create a pin
 // thunk action creator
 export const createPin = (newPin, id) => async (dispatch) => {
-    console.log('in the thunk')
-    console.log('ownerid', id)
+    // console.log('in the thunk')
+    // console.log('ownerid', id)
     const response = await fetch(`/api/pins/${id}/create`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(newPin),
       })
-      console.log('after the fetch')
-      console.log('fetched response', response)
+      // console.log('after the fetch')
+      // console.log('fetched response', response)
     if (response.ok){
      // Constant variable to specify the action type (“pins/createPin”)
       const createdPin = await response.json()
-      console.log('createdPin', createdPin)
+      // console.log('createdPin', createdPin)
       dispatch(create(createdPin))
-      console.log('dispatched thunk')
+      // console.log('dispatched thunk')
       return createdPin;
     }
 
@@ -81,13 +82,14 @@ export const createPin = (newPin, id) => async (dispatch) => {
 
 // Create the action creator to update a pin
 // thunk action creator
-export const updatePin = (pinId) => async dispatch => {
-    const response = await fetch(`/api/pins/${pinId}`, {
+export const updatePin = (pin, pinId) => async dispatch => {
+  console.log('pin info from thunk', pin)
+    const response = await fetch(`/api/pins/${pinId}/update`, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({pinId}),
+        body: JSON.stringify(pin),
       })
-
+      console.log('inside of thunk', pinId)
     if (response.ok){
      // Constant variable to specify the action type (“pins/updatePin”)
       const pin = await response.json()
@@ -137,32 +139,38 @@ const pinReducer = (state = initialState, action) => {
       // Create a case in your reducer to handle the data returned from fetch/parse
     case LOAD_PINS:{
       const newState = { allPins: {}, onePin: {} };
-            action.pinList.Pins.forEach(pin => newState.allPins[pin.id] = pin);
+      // console.log('new state reducer', newState)
+      // console.log('pinlist from reducer', action.pinList)
+            action.pinList.pins.forEach(pin => newState.allPins[pin.id] = pin);
             return newState;
         }
 
       case LOAD_SPECIFIC_PIN: {
         const newState = { ...state, onePin: {} };
-            newState.onePin = action.onePin
+            newState.onePin = action.onePin.pins[0]
             return newState
         }
+
       case CREATE_PIN: {
         const newState = {...state, allPins: {...state.allPins}};
         if (Array.isArray (action.payload)) {
             action.payload.forEach(pin => {
                 newState.allPins[pin.id] = pin
             })
-        }else {
+        } else {
             newState.allPins[action.payload.id] = action.payload
           }
           console.log(newState, '12345')
           return newState
       }
+
       case UPDATE_PIN: {
         const newState = { ...state, allPins: { ...state.allPins}}
+        console.log('inside update pin reducer', newState)
         newState.allPins[action.pin.id] = action.pin;
         return newState
       }
+
       case REMOVE_PIN: {
         const newState = {...state, allPins: { ...state.allPins}}
         delete newState.allPins[action.id]

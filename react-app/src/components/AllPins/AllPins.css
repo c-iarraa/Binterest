@@ -1,0 +1,19 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    justify-content: center;
+    align-items: center;
+    /* grid-gap: 1rem; */
+    /* row-gap:-5px;
+    column-gap: 1px; */
+    grid-auto-flow: row dense;
+    list-style: none;
+    height: auto;
+    width: auto;
+}
+
+.pinImg{
+    width: 280px;
+    border-radius: 14px;
+    height: 500px;
+}

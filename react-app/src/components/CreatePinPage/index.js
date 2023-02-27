@@ -31,7 +31,7 @@ function CreatePin() {
         }
 
         return dispatch(createPin(payload, ownerId))
-        // .then (() => history.push('/'))
+        .then (() => history.push('/'))
         .catch(
             async (res) => {
                 if (!res.ok) {
@@ -45,7 +45,7 @@ function CreatePin() {
 
 
     return (
-        <nav class="pin-container">
+        <nav class="create-pin-container">
             <form onSubmit={handleSubmit}>
                 <ul>
                 {errors.map((error, idx) => (
