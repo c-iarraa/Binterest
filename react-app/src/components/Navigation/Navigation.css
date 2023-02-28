@@ -113,23 +113,24 @@ a.visited {
 .login-button {
   font-family: Helvetica;
   text-decoration: none;
-  color: black;
-  border: 1px solid rgb(166, 162, 162);
-  padding: none;
-  border-radius: 4px;
+  color: white;
+  padding: 10px;
+  border-radius: 20px;
   width: 50px;
   position: absolute;
-  background-color: white;
+  border: 1px solid red;
+  background-color: red;
 }
 
 .signup-button {
   font-family: Helvetica;
   text-decoration: none;
-  color: white;
-  border: 1px solid red;
-  background-color: red;
-  border-radius: 4px;
-
+  color: black;
+  border: 1px solid rgb(232,232,232);
+  background-color: rgb(232,232,232);
+  border-radius: 20px;
+  padding: 10px;
+  bottom: 10px;
 }
 
 .logo-img {
@@ -153,7 +154,7 @@ a.visited {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
-  width: 180px
+  width: 180px;
 }
 
 .user-logout-button {

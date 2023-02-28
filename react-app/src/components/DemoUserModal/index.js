@@ -27,36 +27,37 @@ function DemoUserModal () {
 
     return (
         <>
-        <h1 className='login-form-title'>Log In</h1>
+        <h1 className='login-form-title' style={{ fontFamily: 'Helvetica' }}>Welcome to Binterest</h1>
         <form onSubmit={handleSubmit}>
-        <h2 style={{ fontFamily: 'Helvetica' }}>Welcome to Binterest</h2>
           <ul>
             {errors.map((error, idx) => (
               <li key={idx}>{error}</li>
             ))}
           </ul>
-          <label>
-            Email
-            <input className = 'login-inputs'
-              type="text"
-              placeholder='Username or Email'
-              value={credential}
-              onChange={(e) => setCredential(e.target.value)}
-              required
-            />
-          </label>
-          <label>
-            Password
-            <input className = 'login-inputs'
-              type="password"
-              placeholder='Password'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </label>
+          <div className='demo-login-page'>
+            <label>
+              Email
+              <input className = 'demo-login-inputs'
+                type="text"
+                placeholder='Username or Email'
+                value={credential}
+                onChange={(e) => setCredential(e.target.value)}
+                required
+              />
+            </label>
+            <label>
+              Password
+              <input className = 'demo-login-inputs'
+                type="password"
+                placeholder='Password'
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </label>
+          </div>
           <h2 className='forgot-password'>Forgot your password?</h2>
-          <button className='login-button' type="submit">Log in</button>
+          <button className='demo-login-button' type="submit">Log in</button>
         </form>
         </>
       );

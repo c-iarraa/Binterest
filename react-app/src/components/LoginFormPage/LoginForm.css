@@ -1,0 +1,33 @@
+.login-header {
+    font-family: Helvetica;
+    text-align: center;
+}
+
+.login-page {
+    font-family: Helvetica;
+}
+
+.login-inputs {
+    display: block;
+    border: auto;
+    width:90%;
+    padding:15px;
+    border-radius: 50px;
+    margin:0px;
+    font-family: Helvetica;
+
+}
+
+.login-page-button {
+    background-color: rgb(230, 0, 35);
+    padding: 10px;
+    border-radius: 20px;
+    border-color: rgb(230, 0, 35);
+    /* font-weight: 700px; */
+    font-family: Helvetica;
+    font-size: 18px;
+    width: 250px;
+    margin-top: 90px;
+    color: white;
+
+}

@@ -24,35 +24,40 @@ function LoginFormPage() {
 
   return (
     <>
-      <h1>Log In</h1>
+      <h1 className='login-header'>Log In</h1>
       <form onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
         </ul>
-        <label>
-          Email
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        <button type="submit">Log In</button>
+        <div className='login-page'>
+          <label>
+            Email
+            <input className='login-inputs'
+              type="text"
+              value={email}
+              placeholder='Enter email address'
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+            Password
+            <input className='login-inputs'
+              type="password"
+              value={password}
+              placeholder='Enter password'
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </label>
+          <button className='login-page-button' type="submit">Log In</button>
+        </div>
       </form>
+
       <div className='demo-user-button-div'>
-						<NavLink className='demo-button' exact to='/login'>Demo User</NavLink>
+            <DemoUserModal />
 			</div>
     </>
   );

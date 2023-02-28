@@ -10,7 +10,7 @@ function UpdatePin() {
     const history = useHistory()
     // const { pinId } = useParams()
     const dispatch = useDispatch()
-    const ownerId = useSelector(state=> state.session.user?.id);
+    const ownerId = useSelector(state=> state.pins.onePin.owner_id);
     const pinSelector = useSelector(state => state.pins.onePin);
     const pinId = useSelector(state => state.pins.onePin.id);
 
@@ -29,15 +29,15 @@ function UpdatePin() {
 
       setErrors([])
 
-      const payload = {
-        id: pinSelector.id,
-        owner_id:
+      const updatedInfo = {
+        id: pinId,
+        owner_id: ownerId,
         title,
         description,
         destinationLink
       }
 
-        // return dispatch(updatePin(payload, ownerId))
+        // return dispatch(updatePin(updatedPin, ownerId))
         // .then (() => history.push(`/`))
         // .catch(
         //     async (res) => {
@@ -48,7 +48,8 @@ function UpdatePin() {
         //     }
         // )
 
-    const updatedPin = await dispatch((updatePin(payload, pinId)))
+    const updatedPin = await dispatch((updatePin(updatedInfo, pinId)))
+
         .then (() => history.push(`/pins/${pinId}`))
         .catch(
             async (res) => {

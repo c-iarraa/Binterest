@@ -10,6 +10,7 @@ function PinDetails() {
     const dispatch = useDispatch();
     const history = useHistory();
     const pinSelector = useSelector(state => state.pins.onePin);
+    const ownerId = useSelector(state => state.pins.onePin.owner_id)
     const sessionUserId = useSelector(state => state.session.user?.id) //session user id
     const [validationErrors, setValidationErrors] = useState([]);
 
@@ -40,21 +41,19 @@ function PinDetails() {
                 ))}
             </ul>
             <div className='pin-div'>
-                {/* <div className='pin-image-container'>
-                    {pinSelector.SpotImages.map((image) => (
-                        <img className="specific-spot-img" key={image.id} src={image.url}/>
-                        ))}
-                    </div> */}
+                <div className='pin-image-container'>
+                    {/* {pinSelector.Pin.map((image) => (
+                        <img className="specific-spot-img" key={image.id} src={image.imageUrl}/>
+                    ))} */}
+                    {pinSelector.imageUrl}
+                    {/* <img className="pin-img">{pinSelector.imageUrl}</img> */}
+                    </div>
                 <div className='right-side-card'>
                     <div className='update-delete-div'>
-                        {(pinSelector.owner_id === sessionUserId) &&
+                        {(ownerId === sessionUserId) &&
                         <div>
-                            {/* <div className='delete-button'> */}
                                 <button className='delete-text' onClick={deleteSpecificPin}>Delete Pin</button>
-                            {/* </div> */}
-                            {/* <div className='update-button'> */}
                                 <NavLink className='update-text' to={`/pins/${pinSelector.id}/update`}>Update Pin</NavLink>
-                            {/* </div> */}
                         </div>
                         }
                     </div>
