@@ -26,6 +26,8 @@ const load = (jointableList) => ({
 // Create the action creator to delete a board
 // thunk action creator
 export const deleteJointable = (boardId) => async dispatch => {
+  console.log('inside of delete jointable thunk')
+  console.log('board id inside of delete thunk', boardId)
     const response = await fetch(`/api/pinboards/${boardId}/pinandboard`, {
         method: 'DELETE',
         headers: {'Content-Type': 'application/json'},
@@ -84,23 +86,24 @@ const jointableReducer = (state = initialState, action) => {
 
         const newState = { ...state }
         newState.jointable = action.jointableList.board_pins
-        console.log('in reducer', action.jointableList.board_pins)
+        // console.log('in reducer', action.jointableList.board_pins)
        return newState
       }
 
-      case CREATE_JOINTABLE: {
-          const newState = {...state}
-          const updated_boardpins = {}
-          updated_boardpins['totalBoardPins'] = action.like.likes
-          newState.jointable = updated_boardpins
-          return newState
-        }
+      // case CREATE_JOINTABLE: {
+      //     const newState = {...state}
+      //     const updated_boardpins = {}
+      //     updated_boardpins['totalBoardPins'] = action.like.likes
+      //     newState.jointable = updated_boardpins
+      //     return newState
+      //   }
 
-      // case REMOVE_JOINTABLE: {
-      //   const newState = {...state}
-      //   delete newState.jointable[action.id]
-      //   return newState
-      // }
+      case REMOVE_JOINTABLE: {
+        const newState = {...state}
+        console.log('inside delete reducer w/ newstate', newState)
+        delete newState.jointable[action.id]
+        return newState
+      }
 
       default:
         return state

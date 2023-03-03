@@ -53,7 +53,7 @@ function UpdatePinBoard() {
     const deleteSpecificBoard = async (e) => {
         e.preventDefault()
         dispatch(deleteBoard(boardId))
-        history.push('/')
+        history.push('/pinboards')
     }
 
 
