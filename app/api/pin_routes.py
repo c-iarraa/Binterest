@@ -78,8 +78,8 @@ def create_pin(id):
 @pin_routes.route('/<int:id>/update', methods=['PUT'])
 # @login_required
 def edit_pin(id):
-    print('wewewewweweweweewewe')
-    print('inside edit pin route', id)
+    # print('wewewewweweweweewewe')
+    # print('inside edit pin route', id)
     # grab a specific pin by the id passed in through the url
     updatedPin = Pin.query.get(id)
 
@@ -90,15 +90,15 @@ def edit_pin(id):
     # create an instance of the pin form
     form = NewPin(title = updatedPin.title, imageUrl = updatedPin.imageUrl)
     form["csrf_token"].data = request.cookies["csrf_token"]
-    print('form data', form.data)
+    # print('form data', form.data)
 
     # check if request is a POST request, and run validators configured for each field then commit to database
     if form.validate_on_submit():
-        print('hello after form validate')
+        # print('hello after form validate')
         form.populate_obj(updatedPin)
-        print('just updated pin', form.data)
+        # print('just updated pin', form.data)
         db.session.add(updatedPin)
-        print('adding updated pin to db')
+        # print('adding updated pin to db')
         db.session.commit()
 
     #  return pin in dictionary

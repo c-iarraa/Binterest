@@ -83,13 +83,14 @@ export const createPin = (newPin, id) => async (dispatch) => {
 // Create the action creator to update a pin
 // thunk action creator
 export const updatePin = (pin, pinId) => async dispatch => {
-  console.log('pin info from thunk', pin)
+  // console.log('pin info from thunk', pin)
+  // console.log('pin id form thunk', pinId)
     const response = await fetch(`/api/pins/${pinId}/update`, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(pin),
       })
-      console.log('inside of thunk', pinId)
+      // console.log('inside of thunk', pinId)
     if (response.ok){
      // Constant variable to specify the action type (“pins/updatePin”)
       const pin = await response.json()

@@ -6,7 +6,8 @@ import DemoUserModal from "../DemoUserModal";
 import SearchBar from './searchbar';
 import CreatePin from '../CreatePinPage';
 import './Navigation.css';
-// import logo from '../Photo'
+import logo from '../Photo/logo.png'
+
 
 
 function Navigation({ isLoaded }){
@@ -41,8 +42,18 @@ function Navigation({ isLoaded }){
 			<div className='navigationBar'>
 
 				<div className='nav-logo'>
-					<div><NavLink to="/">Binterest</NavLink></div>
-					{/* <img className="logo-img" src={logo}></img> */}
+					{/* <div><NavLink className='logoooooo' to="/"> B </NavLink></div> */}
+					<NavLink to='/' ><img className="logo-img" src={logo}></img></NavLink>
+				</div>
+
+				<div className='boards-link'>
+					<ul className='create-board-button'>
+						<ul>
+							{sessionUser &&
+							<NavLink className="board-button" exact to="/pinboards">PinBoards</NavLink>
+							}
+						</ul>
+					</ul>
 				</div>
 
 				<div className='create-links'>
@@ -50,7 +61,10 @@ function Navigation({ isLoaded }){
 				<ul className={ulClassName} ref={ulRef}>
 					<ul>
 						{sessionUser &&
-						<NavLink className="create-pin-link" exact to="/pins/new">Create Pin</NavLink>
+						<div className='create-links-dropdown'>
+							<p><NavLink className="create-pin-link" exact to="/pins/new">Create Pin</NavLink></p>
+							<p><NavLink className="create-board-link" exact to="/pinboards/new">Create Board</NavLink></p>
+						</div>
 						}
 					</ul>
 				</ul>

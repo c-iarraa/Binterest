@@ -1,0 +1,25 @@
+
+
+
+.all-pin-card {
+    background-color: rgb(232,232,232);
+    border: transparent solid;
+    border-radius: 20px;
+    width: 500px;
+    display: flex;
+    align-items: center;
+    align-self: center;
+    /* height: 100px; */
+}
+
+.boardCard {
+    width: 80px;
+}
+
+.board-name {
+    font-family: Helvetica;
+}
+
+.pin-amount {
+    font-family: Helvetica;
+}

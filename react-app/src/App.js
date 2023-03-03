@@ -9,6 +9,10 @@ import CreatePin from "./components/CreatePinPage";
 import AllPins from "./components/AllPins";
 import UpdatePin from "./components/UpdatePinPage";
 import PinDetails from "./components/PinDetails";
+import AllBoards from "./components/PinBoard/AllBoards";
+import CreatePinBoard from "./components/PinBoard/CreatePinBoard";
+import UpdatePinBoard from "./components/PinBoard/UpdatePinBoard";
+import PinBoardDetails from "./components/PinBoard/PinBoardDetails";
 
 function App() {
   const dispatch = useDispatch();
@@ -39,6 +43,18 @@ function App() {
           </Route>
           <Route exact path='/'>
            <AllPins />
+         </Route>
+         <Route exact path='/pinboards'>
+           <AllBoards />
+         </Route>
+         <Route exact path='/pinboards/new'>
+           <CreatePinBoard />
+         </Route>
+         <Route exact path='/pinboards/:boardId/update'>
+           <UpdatePinBoard />
+         </Route>
+         <Route exact path='/pinboards/:boardId'>
+           <PinBoardDetails />
          </Route>
         </Switch>
       )}

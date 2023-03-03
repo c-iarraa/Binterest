@@ -32,12 +32,13 @@ a.visited {
 .search-button {
   background-color: rgb(232,232,232);
   border: transparent solid;
-  height: 100%;
+  height: 80%;
   padding: none;
   cursor: pointer;
   border-radius: 8px;
   position: absolute;
-  right: 0;
+  right: 465px;
+  top: 5px
 }
 
 .search-input-values {
@@ -45,8 +46,8 @@ a.visited {
   padding: 8px 50px 8px 8px;
   position: absolute;
   top: 6.5px;
-  left: 20px;
-  width: 365px;
+  left: 30px;
+  width: 400px;
   background-color: rgb(232,232,232);
 }
 
@@ -60,9 +61,12 @@ a.visited {
 }
 
 .search-bar-form {
+  display: flex;
+  flex-direction: row-reverse;
   height: 45px;
+  width: 100%;
   background-color: rgb(232,232,232);
-  border-radius: 20px;
+  border-radius: 22px;
 }
 
 .nav-search-container {
@@ -103,6 +107,7 @@ a.visited {
 .navBar-container{
   padding-left: 20px;
   padding-right: 20px;
+  /* position: fixed; */
   /* border-bottom: 1px solid rgb(211,211,211); */
 }
 
@@ -134,9 +139,10 @@ a.visited {
 }
 
 .logo-img {
-  width: 120px;
-  height:20%;
-  top: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 70px;
+  /* top: 30px; */
 }
 
 .profileButton {
@@ -201,22 +207,41 @@ a.visited {
   position: absolute;
 }
 
-.create-pin-link {
+.create-links-dropdown{
   font-size: 16px;
   background-color: white;
   border: none;
   border-radius: 10px;
-  width: 100px;
+  width: 130px;
+  height: 80px;
   padding: 10px;
   box-shadow: 5px 1px 12px rgb(166, 162, 162);
-  left: 50px;
-  text-decoration: none;
+  left: 5px;
+  /* right: -50px */
+}
+
+.create-pin-link {
   color: black;
-  right: -50px
+  text-decoration: none;
 }
 
 .create-pin-link:hover {
-  background-color: rgb(232,232,232)
+  background-color: rgb(232,232,232);
+  padding: 8px;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.create-board-link {
+  color: black;
+  text-decoration: none;
+}
+
+.create-board-link:hover {
+  background-color: rgb(232,232,232);
+  padding: 8px;
+  border-radius: 8px;
+  width: 100%
 }
 
 .logout-button {
@@ -224,4 +249,28 @@ a.visited {
   background-color: white;
   font-size: 16px;
   left: -40px;
+}
+
+.logout-button:hover {
+  background-color: rgb(232,232,232);
+  width: 100%;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.board-button {
+  color: black;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.logoooooo {
+  color: white;
+  text-decoration: none;
+  font-size: 25px;
+  font-family: cursive;
+  background-color: red;
+  padding: 6px;
+  border-radius: 100px;
+  width: 100px;
 }
