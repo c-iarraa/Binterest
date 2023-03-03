@@ -103,7 +103,7 @@ export const updateBoard = (board, boardId) => async dispatch => {
 // Create the action creator for one board
 // thunk action creator
 export const oneBoard = (boardId) => async dispatch => {
-    const response = await fetch(`/api/pinboards/${boardId}`)
+    const response = await fetch(`/api/pinboards/${boardId}/details`)
     console.log('board id inside of thunk', boardId)
 
     if (response.ok){

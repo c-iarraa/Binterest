@@ -37,7 +37,7 @@ function UpdatePinBoard() {
 
         const updatedBoard = await dispatch((updateBoard(updatedInfo, boardId)))
 
-        .then (() => history.push(`/pinboards/${boardId}`))
+        .then (() => history.push(`/pinboards/${boardId}/details`))
         .catch(
             async (res) => {
                 const data = await res.json()

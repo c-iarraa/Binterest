@@ -84,6 +84,7 @@ const jointableReducer = (state = initialState, action) => {
 
         const newState = { ...state }
         newState.jointable = action.jointableList.board_pins
+        console.log('in reducer', action.jointableList.board_pins)
        return newState
       }
 

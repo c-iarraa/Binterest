@@ -32,17 +32,18 @@ def get_boards_by_current_user(id):
 
 
 # Get details of a board from an id
-@pinboard_routes.route('/<int:id>')
+@pinboard_routes.route('/<int:id>/details')
 def get_board_by_id(id):
     print('inside of backend details route')
     board = PinBoard.query.get(id)
     print('board query in route', board)
+    test = PinBoard.query.filter(PinBoard.id == id).all()
 
     if not board:
         return {'errors': 'Pinboard could not be found'}, 404
 
     # return {'pinboard': board.todict()}, 200
-    return {'boards': board.pins_boards_table()}, 200
+    return {'boards': [board.to_dict_pins() for board in test]}, 200
 
 # Create a board
 @pinboard_routes.route('/<int:id>/create', methods=['POST'])

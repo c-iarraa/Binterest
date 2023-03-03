@@ -13,9 +13,11 @@ function PinBoardDetails() {
     const { boardId } = useParams();
     const [validationErrors, setValidationErrors] = useState([])
     const boardSelector = useSelector(state => state.boards.oneBoard);
+    console.log('board selector in component', boardSelector)
     const sessionUserId = useSelector(state => state.session.user.id);
     // Find data with useSelector in your component
     const ownerId = useSelector(state => state?.boards.oneBoard.owner_id)
+    console.log('owner id', ownerId)
     const boardpinSelector = useSelector(state => state?.jointable?.jointable[0])
 
     useEffect(() => {

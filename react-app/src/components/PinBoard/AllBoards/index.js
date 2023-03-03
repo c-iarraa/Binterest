@@ -43,19 +43,6 @@ function AllBoards() {
     // }, [boardId, dispatch])
 
 
-    // const ownerId = useSelector(state => state?.pinboards.oneBoard.owner_id)
-
-    // if (!ownerId) return null;
-
-    // const deleteSpecificBoard = async (e) => {
-    //     e.preventDefault()
-    //     dispatch(deleteBoard(boardId))
-    //     history.push('/pinboards')
-    // }
-
-
-
-
     return (
         <nav className='all-boards-container'>
             <div className='all-pin-card'>

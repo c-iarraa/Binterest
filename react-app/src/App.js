@@ -53,7 +53,7 @@ function App() {
          <Route exact path='/pinboards/:boardId/update'>
            <UpdatePinBoard />
          </Route>
-         <Route exact path='/pinboards/:boardId'>
+         <Route exact path='/pinboards/:boardId/details'>
            <PinBoardDetails />
          </Route>
         </Switch>

@@ -37,16 +37,6 @@ function UpdatePin() {
         destinationLink
       }
 
-        // return dispatch(updatePin(updatedPin, ownerId))
-        // .then (() => history.push(`/`))
-        // .catch(
-        //     async (res) => {
-        //         if (!res.ok) {
-        //             const data = await res.json();
-        //             if (data && data.errors) setErrors(data.errors);
-        //         }
-        //     }
-        // )
 
     const updatedPin = await dispatch((updatePin(updatedInfo, pinId)))
 
