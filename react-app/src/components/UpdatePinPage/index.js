@@ -11,8 +11,8 @@ function UpdatePin() {
     // const { pinId } = useParams()
     const dispatch = useDispatch()
     const ownerId = useSelector(state=> state.pins.onePin.owner_id);
-    const pinSelector = useSelector(state => state.pins.onePin);
-    const pinId = useSelector(state => state.pins.onePin.id);
+    const pinSelector = useSelector(state => state.pins.onePin.pin);
+    const pinId = useSelector(state => state.pins.onePin.pin.id);
 
     const [title, setTitle] = useState(pinSelector.title)
     const [description, setDescription] = useState(pinSelector.description)

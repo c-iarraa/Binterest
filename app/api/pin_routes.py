@@ -19,20 +19,22 @@ def get_all_pins():
     return {'pins': data}
 
 
-# Get all pins for a specific user
-@pin_routes.route('/<int:id>')
-# @login_required
-def get_pins_by_current_user(id):
-    pins = Pin.query.filter(Pin.owner_id == id)
+# # Get all pins for a specific user
+# @pin_routes.route('/<int:id>')
+# # @login_required
+# def get_pins_by_current_user(id):
+#     pins = Pin.query.filter(Pin.owner_id == id)
 
-    return {'pins' :[pin.to_dict() for pin in pins]} , 200
+#     return {'pins' :[pin.to_dict() for pin in pins]} , 200
 
 
 # Get details of a pin from an id
 @pin_routes.route('/<int:id>')
 # @login_required
 def get_pins_by_pin_id(id):
+    print('inside of details route!!!!!!')
     pin = Pin.query.get(id)
+    print('pin inside of backend route for get details', pin)
     # print('inside of single pin route')
 
     if not pin:

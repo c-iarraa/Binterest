@@ -148,7 +148,8 @@ const pinReducer = (state = initialState, action) => {
 
       case LOAD_SPECIFIC_PIN: {
         const newState = { ...state, onePin: {} };
-            newState.onePin = action.onePin.pins[0]
+        console.log(action.onePin)
+            newState.onePin = action.onePin
             return newState
         }
 
@@ -161,7 +162,6 @@ const pinReducer = (state = initialState, action) => {
         } else {
             newState.allPins[action.payload.id] = action.payload
           }
-          console.log(newState, '12345')
           return newState
       }
 
