@@ -1,6 +1,6 @@
 // constants to avoid debugging typos
 export const LOAD_JOINTABLE = "pinandboard/GETALLJOINTABLE";
-export const CREATE_JOINTABLE = "pinandboard/CREATEJOINTABLE";
+export const ADD_JOINTABLE = "pinandboard/ADDJOINTABLE";
 export const REMOVE_JOINTABLE = "pinandboard/REMOVEJOINTABLE";
 
 
@@ -11,8 +11,8 @@ const remove = (jointable) => ({
     jointable
 });
 
-const create = (jointable) => ({
-    type: CREATE_JOINTABLE,
+const add = (jointable) => ({
+    type: ADD_JOINTABLE,
     payload: jointable
 })
 
@@ -41,10 +41,10 @@ export const deleteJointable = (boardId) => async dispatch => {
   }
 
 
-// Create the action creator to create a jointable
+// Create the action creator to add a jointable
 // thunk action creator
-export const createJointable = (payload, id) => async (dispatch) => {
-  console.log('inside of create thunk')
+export const addJointable = (payload, id) => async (dispatch) => {
+  console.log('inside of add thunk')
     const response = await fetch(`/api/pinboards/${id}/pinandboard`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -55,7 +55,7 @@ export const createJointable = (payload, id) => async (dispatch) => {
      // Constant variable to specify the action type (pinandboard/createJointable”)
       const newBoardpin = await response.json()
       newBoardpin['pins'] = newBoardpin.pins
-      dispatch(create(newBoardpin))
+      dispatch(add(newBoardpin))
       return newBoardpin;
     }
   }
@@ -90,13 +90,13 @@ const jointableReducer = (state = initialState, action) => {
        return newState
       }
 
-      // case CREATE_JOINTABLE: {
-      //     const newState = {...state}
-      //     const updated_boardpins = {}
-      //     updated_boardpins['totalBoardPins'] = action.like.likes
-      //     newState.jointable = updated_boardpins
-      //     return newState
-      //   }
+      case ADD_JOINTABLE: {
+          const newState = {...state}
+          const updated_boardpins = {}
+          updated_boardpins['totalBoardPins'] = action.like.likes
+          newState.jointable = updated_boardpins
+          return newState
+        }
 
       case REMOVE_JOINTABLE: {
         const newState = {...state}

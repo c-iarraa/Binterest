@@ -18,8 +18,8 @@ function CommentBar() {
     };
 
     return (
-            <div className="pin-comment">
-              <div className="pin-comment-container">
+            // <div className="pin-comment">
+              <div className="pin-comment-container"> 
                 <form onSubmit={handleComment} className="comment-bar-form">
                   <div className='comment-user-icon'>
                     <i class="fa-solid fa-user"></i>
@@ -30,11 +30,12 @@ function CommentBar() {
                     value={keyword}
                     onChange={(e) => setKeyword(e.target.value)}
                     maxLength="100"
+                    disabled
                   />
                   </div>
                 </form>
               </div>
-            </div>
+            // </div>
           );
 
 }

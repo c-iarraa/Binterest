@@ -42,57 +42,50 @@ function Navigation({ isLoaded }){
 			<div className='navigationBar'>
 
 				<div className='nav-logo'>
-					{/* <div><NavLink className='logoooooo' to="/"> B </NavLink></div> */}
 					<NavLink to='/' ><img className="logo-img" src={logo}></img></NavLink>
 				</div>
 
 				<div className='boards-link'>
-					<ul className='create-board-button'>
-						<ul>
+					{/* <ul className='create-board-button'> */}
 							{sessionUser &&
 							<NavLink className="board-button" exact to="/pinboards">PinBoards</NavLink>
 							}
-						</ul>
-					</ul>
+					{/* </ul> */}
 				</div>
 
 				<div className='create-links'>
 					<button onClick={openMenu} className='create-buttons'>Create <i class="fa-solid fa-circle-chevron-down"></i></button>
-				<ul className={ulClassName} ref={ulRef}>
-					<ul>
-						{sessionUser &&
-						<div className='create-links-dropdown'>
-							<p><NavLink className="create-pin-link" exact to="/pins/new">Create Pin</NavLink></p>
-							<p><NavLink className="create-board-link" exact to="/pinboards/new">Create Board</NavLink></p>
-						</div>
-						}
+					<ul className={ulClassName} ref={ulRef}>
+							{sessionUser &&
+							<div className='create-links-dropdown'>
+								<p><NavLink className="create-pin-link" exact to="/pins/new">Create Pin</NavLink></p>
+								<p><NavLink className="create-board-link" exact to="/pinboards/new">Create Board</NavLink></p>
+							</div>
+							}
 					</ul>
-				</ul>
 				</div>
 
 				<SearchBar/>
 
+
 			{(sessionUser === null) ?
 			<div className='navBar-right'>
-					<div className='signup-button-div'>
-						<NavLink className='signup-button' exact to='/signup'>Sign Up</NavLink>
-					</div>
-					<div className='login-button-div'>
-						<NavLink className='login-button' exact to='/login'>Log In</NavLink>
-					</div>
+						<div className='signup-button-div'>
+							<NavLink className='signup-button' exact to='/signup'>Sign Up</NavLink>
+						</div>
+						<div className='login-button-div'>
+							<NavLink className='login-button' exact to='/login'>Log In</NavLink>
+						</div>
 			</div>
 			:
 			<div className='navBar-right'>
-				{/* <div className='notifs'>
-					<NotificationButton user={sessionUser}/>
-				</div> */}
 				<div className='user-profile'>
 					<ProfileButton user={sessionUser} />
 				</div>
 			</div>
 			}
-		</div>
-	</nav>
+			</div>
+		</nav>
 	);
 }
 

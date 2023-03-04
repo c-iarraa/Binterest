@@ -49,5 +49,5 @@ class Pin(db.Model):
             'destinationLink': self.destinationLink,
             'createdAt': self.createdAt,
             'updatedAt': self.updatedAt,
-            # 'pinb': [pb.to_dict() for pb in self.pinboards]
+            'pinb': [pb.to_dict() for pb in self.pinboards]
         }

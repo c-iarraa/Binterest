@@ -13,6 +13,7 @@ import AllBoards from "./components/PinBoard/AllBoards";
 import CreatePinBoard from "./components/PinBoard/CreatePinBoard";
 import UpdatePinBoard from "./components/PinBoard/UpdatePinBoard";
 import PinBoardDetails from "./components/PinBoard/PinBoardDetails";
+import Footer from "./components/Footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -56,6 +57,7 @@ function App() {
          <Route exact path='/pinboards/:boardId/details'>
            <PinBoardDetails />
          </Route>
+         <Footer />
         </Switch>
       )}
     </>

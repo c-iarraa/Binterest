@@ -29,6 +29,7 @@ function SearchBar() {
                     value={keyword}
                     onChange={(e) => setKeyword(e.target.value)}
                     maxLength="100"
+                    disabled
                   />
                 </form>
               </div>

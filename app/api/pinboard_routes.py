@@ -17,6 +17,31 @@ def get_board_pins(id):
 
     return {'board_pins' :[board.to_dict_pins() for board in test]} , 200
 
+# Add jointable pins to a pinboard by pin-id
+@pinboard_routes.route('/<int:id>/pinandboard')
+# @login_required
+def add_pins_to_board(id):
+
+    # grab a specific pin by id
+    pins = Pin.query.get(id)
+
+    return {'board_pins' :[pin.to_dict_pinboards() for pin in pins]} , 200
+
+
+
+# # Delete jointable pins for a pinboard when board is deleted
+# @pinboard_routes.route('<int:id>/pinandboard', methods=["DELETE"])
+# # @login_required
+# def delete_board_pins(id):
+
+#     # grab a specific pin by the id passed in through the url
+#     board = PinBoard.query.get(id)
+
+#     db.session.delete(board)
+#     db.session.commit()
+
+#     return {'message': ['Boardpins has successfully deleted']}, 200
+
 
 # Get all boards for a specific user
 @pinboard_routes.route('/<int:id>')

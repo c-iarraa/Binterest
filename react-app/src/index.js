@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
+import Footer from "./components/Footer";
 
 import { ModalProvider, Modal } from "./context/Modal";
 import configureStore from "./store";
@@ -27,6 +28,7 @@ function Root() {
 				<BrowserRouter>
 					<App />
 					<Modal />
+					<Footer />
 				</BrowserRouter>
 			</Provider>
 		</ModalProvider>
