@@ -32,8 +32,8 @@ class Pin(db.Model):
     # )
 
 
-    pinboards = db.relationship("PinBoard", secondary=pins_boards_table, back_populates='pins')
-    # pinboards = db.relationship("PinBoard", back_populates='pins')
+    # pinboards = db.relationship("PinBoard", secondary=pins_boards_table, back_populates='pins')
+    pinboards = db.relationship("PinBoard", back_populates='pins')
 
 
 

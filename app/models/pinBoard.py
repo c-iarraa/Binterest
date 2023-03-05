@@ -30,9 +30,9 @@ class PinBoard(db.Model):
 
     users = db.relationship("User", back_populates="pinboards")
 
-    pins = db.relationship("Pin", secondary=pins_boards_table, back_populates="pinboards")
+    # pins = db.relationship("Pin", secondary=pins_boards_table, back_populates="pinboards")
 
-    # pins = db.relationship("Pin", back_populates="pinboards")
+    pins = db.relationship("Pin", back_populates="pinboards")
 
 
 
