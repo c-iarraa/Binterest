@@ -4,7 +4,7 @@ import { logout } from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
-import DemoUserModal from "../DemoUserModal";
+
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -64,12 +64,6 @@ function ProfileButton({ user }) {
               buttonText="Sign Up"
               onItemClick={closeMenu}
               modalComponent={<SignupFormModal />}
-            />
-
-            <OpenModalButton
-              itemText="Demo User Login"
-              onItemClick={closeMenu}
-              modalComponent={<DemoUserModal />}
             />
           </>
         )}

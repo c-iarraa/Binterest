@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { login } from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, NavLink } from "react-router-dom";
-// import DemoUserModal from "../DemoUserModal";
 import logo from '../Photo/logo.png'
 import './LoginForm.css';
 

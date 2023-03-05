@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
-import DemoUserModal from "../DemoUserModal";
 import SearchBar from './searchbar';
 import CreatePin from '../CreatePinPage';
 import './Navigation.css';
