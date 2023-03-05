@@ -13,7 +13,7 @@ Base = declarative_base()
 pins_boards_table = db.Table("pins_boards_table",
     db.Model.metadata,
     db.Column('pinboard_id', db.Integer, db.ForeignKey(add_prefix_for_prod('pinboards.id')), primary_key=True),
-    db.Column('pin_id', db.Integer, db.ForeignKey(add_prefix_for_prod('pin.id')), primary_key=True)
+    db.Column('pin_id', db.Integer, db.ForeignKey(add_prefix_for_prod('pins.id')), primary_key=True)
 )
 
 

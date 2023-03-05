@@ -41,7 +41,7 @@ def upgrade():
     if environment == "production":
         op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
 
-    op.create_table('pin',
+    op.create_table('pins',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('owner_id', sa.Integer(), nullable=False),
     sa.Column('title', sa.String(length=100), nullable=False),
@@ -55,7 +55,7 @@ def upgrade():
     )
 
     if environment == "production":
-        op.execute(f"ALTER TABLE pin SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE pins SET SCHEMA {SCHEMA};")
 
     op.create_table('pinboards',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -73,7 +73,7 @@ def upgrade():
     op.create_table('pins_boards_table',
     sa.Column('pinboard_id', sa.Integer(), nullable=False),
     sa.Column('pin_id', sa.Integer(), nullable=False),
-    sa.ForeignKeyConstraint(['pin_id'], ['pin.id'], ),
+    sa.ForeignKeyConstraint(['pin_id'], ['pins.id'], ),
     sa.ForeignKeyConstraint(['pinboard_id'], ['pinboards.id'], ),
     sa.PrimaryKeyConstraint('pinboard_id', 'pin_id')
     )
