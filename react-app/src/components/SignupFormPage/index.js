@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, NavLink } from "react-router-dom";
 import { signUp } from "../../store/session";
+import logo from '../Photo/logo.png'
 import './SignupForm.css';
 
 function SignupFormPage() {
@@ -31,78 +32,83 @@ function SignupFormPage() {
   };
 
   return (
-    <>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-        </ul>
-        <label>
-					First Name
-					<input
-						type="test"
-						value={first_name}
-						onChange={(e) => setFirst_name(e.target.value)}
-						required
-					/>
-				</label>
-				<label>
-					Last Name
-					<input
-						type="test"
-						value={last_name}
-						onChange={(e) => setLast_name(e.target.value)}
-						required
-					/>
-				</label>
-				<label>
-					Age
-					<input
-						type="number"
-						value={age}
-						onChange={(e) => setAge(e.target.value)}
-						required
-					/>
-				</label>
-        <label>
-          Email
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Username
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Confirm Password
-          <input
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-        </label>
-        <button type="submit">Sign Up</button>
-      </form>
-    </>
+    <nav className='signup-container'>
+      <div className='signup-page'>
+          <div className='logo-signup'>
+                  <NavLink to='/' ><img className="logo-img" src={logo}></img></NavLink>
+          </div>
+          <div className='header-group'>
+              <h1 className='signup-header'>Welcome to Binterest</h1>
+              <p className='new-ideas'>Find new ideas to try</p>
+          </div>
+          <form className='input-form' onSubmit={handleSubmit}>
+            <ul>
+              {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+            </ul>
+            <label className='inputsss'>
+              Email
+              <input className='signup-inputs'
+                type="text"
+                value={email}
+                placeholder='Email'
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </label>
+            <label className='inputsss'>
+              Password
+              <input className='signup-inputs'
+                type="password"
+                value={password}
+                placeholder='Password'
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </label>
+            <label className='inputsss'>
+              Confirm Password
+              <input className='signup-inputs'
+                type="password"
+                value={confirmPassword}
+                placeholder='Confirm Password'
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+              />
+            </label>
+            <label className='inputsss'>
+              First Name
+              <input className='signup-inputs'
+                type="test"
+                value={first_name}
+                placeholder='First Name'
+                onChange={(e) => setFirst_name(e.target.value)}
+                required
+              />
+            </label>
+            <label className='inputsss'>
+              Last Name
+              <input className='signup-inputs'
+                type="test"
+                value={last_name}
+                placeholder='Last Name'
+                onChange={(e) => setLast_name(e.target.value)}
+                required
+              />
+            </label>
+            <label className='inputsss'>
+              Age
+              <input className='signup-inputs'
+                type="number"
+                value={age}
+                placeholder='Age'
+                onChange={(e) => setAge(e.target.value)}
+                required
+              />
+            </label>
+            <button className="signup-page-button" type='submit'>Continue</button>
+          </form>
+      </div>
+    </nav>
   );
 }
 

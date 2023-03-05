@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { login } from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, NavLink } from "react-router-dom";
-import DemoUserModal from "../DemoUserModal";
+// import DemoUserModal from "../DemoUserModal";
+import logo from '../Photo/logo.png'
 import './LoginForm.css';
 
 function LoginFormPage() {
@@ -22,44 +23,54 @@ function LoginFormPage() {
     }
   };
 
-  return (
-    <>
-      <h1 className='login-header'>Log In</h1>
-      <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
-          ))}
-        </ul>
-        <div className='login-page'>
-          <label>
-            Email
-            <input className='login-inputs'
-              type="text"
-              value={email}
-              placeholder='Enter email address'
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </label>
-          <label>
-            Password
-            <input className='login-inputs'
-              type="password"
-              value={password}
-              placeholder='Enter password'
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </label>
-          <button className='login-page-button' type="submit">Log In</button>
-        </div>
-      </form>
+  const demoLogin = () => {
+    setEmail('demo@aa.io')
+    setPassword('password')
+    return dispatch(login(email, password));
+  }
 
-      <div className='demo-user-button-div'>
-            <DemoUserModal />
-			</div>
-    </>
+  return (
+    <nav className='login-container'>
+      <div className='login-page'>
+          <div className='logo-login'>
+              <NavLink to='/' ><img className="logo-img" src={logo}></img></NavLink>
+          </div>
+          <h1 className='login-header'>Welcome to Binterest</h1>
+          <form onSubmit={handleSubmit}>
+            <ul>
+              {errors.map((error, idx) => (
+                <li key={idx}>{error}</li>
+              ))}
+            </ul>
+              <label>
+                Email
+                <input className='login-inputs'
+                  type="text"
+                  value={email}
+                  placeholder='Email'
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </label>
+              <label>
+                Password
+                <input className='login-inputs'
+                  type="password"
+                  value={password}
+                  placeholder='Password'
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </label>
+              <p className='forgot-password'>Forgot your password?</p>
+              <button className='login-page-button' type="submit">Log In</button>
+              <p className='or'>OR</p>
+              <div className='demo-user-button-div'>
+                <button className='demo-user-login' onClick={demoLogin} type='submit'>Continue with Demo User</button>
+              </div>
+          </form>
+      </div>
+    </nav>
   );
 }
 

@@ -1,33 +1,89 @@
 .login-header {
     font-family: Helvetica;
     text-align: center;
+    font-weight: 600;
+    font-size: 30px;
 }
 
 .login-page {
     font-family: Helvetica;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    left: 58px;
+    padding-top: 20px;
 }
 
 .login-inputs {
+    position: relative;
+    justify-content: center;
     display: block;
     border: auto;
-    width:90%;
+    width: 250px;
     padding:15px;
-    border-radius: 50px;
+    border-radius: 20px;
     margin:0px;
     font-family: Helvetica;
+    border-color: rgb(232,232,232)
 
 }
 
 .login-page-button {
-    background-color: rgb(230, 0, 35);
+    background-color: #E60023;
     padding: 10px;
     border-radius: 20px;
-    border-color: rgb(230, 0, 35);
-    /* font-weight: 700px; */
+    border-color: #E60023;
+    font-weight: 600;
     font-family: Helvetica;
     font-size: 18px;
-    width: 250px;
-    margin-top: 90px;
+    width: 280px;
+    margin-top: 15px;
     color: white;
+}
 
+.forgot-password {
+    font-weight: 800;
+}
+
+.logo-login {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.or {
+    font-weight: 600;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    right: 10px;
+}
+
+.demo-user-login {
+    border-color:  rgb(23, 129, 236);
+    background-color: rgb(23, 129, 236);
+    padding: 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-family: Helvetica;
+    font-size: 16px;
+    width: 285px;
+    margin-top: 5px;
+    color: white;
+}
+
+.login-container {
+    position: relative;
+    border: transparent solid;
+    background-color: white;
+    box-shadow: 5px 1px 12px rgb(166, 162, 162);
+    height: 600px;
+    border-radius: 28px;
+    flex-direction: row;
+    align-items: center;
+    width: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
