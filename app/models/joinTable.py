@@ -18,5 +18,6 @@ pins_boards_table = db.Table("pins_boards_table",
 )
 
 
+
 if environment == "production":
-        op.execute(f"ALTER TABLE pins_boards_table SET SCHEMA {SCHEMA};")
+    pins_boards_table.schema = SCHEMA
