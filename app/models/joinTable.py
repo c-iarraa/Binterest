@@ -4,8 +4,7 @@ from sqlalchemy.schema import Column, ForeignKey, Table
 from sqlalchemy.types import Integer, String
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from sqlalchemy.sql import func
-# from .pin import Pin
-# from .model import PinBoard
+
 
 
 

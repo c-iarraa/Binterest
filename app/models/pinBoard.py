@@ -30,11 +30,9 @@ class PinBoard(db.Model):
 
     users = db.relationship("User", back_populates="pinboards")
 
-    pin = db.relationship(
-    "Pin",
-    secondary=pins_boards_table,
-    back_populates="pinboards"
-  )
+    pins = db.relationship("Pin", secondary=pins_boards_table, back_populates="pinboards")
+
+    # pins = db.relationship("Pin", back_populates="pinboards")
 
 
 
@@ -54,5 +52,5 @@ class PinBoard(db.Model):
             'name': self.name,
             'createdAt': self.createdAt,
             'updatedAt': self.updatedAt,
-            'pin': [p.to_dict() for p in self.pin]
+            'pin': [p.to_dict() for p in self.pins]
         }
