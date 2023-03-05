@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, request, session
 from flask_login import login_required, current_user
 from app.models import db, User, Pin, PinBoard, pins_boards_table
 from sqlalchemy.sql import func
-from app.forms import NewPinboard
+from app.forms import NewPinboard, NewJoinTable
 
 
 pinboard_routes = Blueprint('pinboards', __name__)
@@ -18,19 +18,34 @@ def get_board_pins(id):
     return {'board_pins' :[board.to_dict_pins() for board in test]} , 200
 
 # Add jointable pins to a pinboard by pin-id
-@pinboard_routes.route('/<int:id>/pinandboard')
+@pinboard_routes.route('/<int:id>/pinandboard/new', methods=["POST"])
 # @login_required
 def add_pins_to_board(id):
+    print('inside of add pin backend route')
 
-    # grab a specific pin by id
-    pins = Pin.query.get(id)
+    form = NewJoinTable()
+    print('new instance of form', form)
+    form['csrf_token'].data = request.cookies['csrf_token']
 
-    return {'board_pins' :[pin.to_dict_pinboards() for pin in pins]} , 200
+
+    pinboard_id = form.board_id.data
+    pin_id = form.pin_id.data
+
+
+    board = PinBoard.query.get(pinboard_id)
+    pin = Pin.query.get(id)
+
+    if form.validate_on_submit():
+        pin.pinboards.append(board)
+        db.session.commit()
+
+
+    return {'message': 'Pin successfully added'}, 200
 
 
 
 # # Delete jointable pins for a pinboard when board is deleted
-# @pinboard_routes.route('<int:id>/pinandboard', methods=["DELETE"])
+# @pinboard_routes.route('<int:id>/pinandboard/delete', methods=["DELETE"])
 # # @login_required
 # def delete_board_pins(id):
 
@@ -74,9 +89,9 @@ def get_board_by_id(id):
 @pinboard_routes.route('/<int:id>/create', methods=['POST'])
 # @login_required
 def create_board(id):
-    print('inside of create route')
+    # print('inside of create route')
     form = NewPinboard()
-    print('new instance of form', form)
+    # print('new instance of form', form)
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit() :

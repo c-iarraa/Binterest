@@ -18,11 +18,15 @@
 
 .single-pin-image{
     width: 512px;
-    height: 680px;
+    height: 650px;
     border-bottom-left-radius: 28px;
     border-top-left-radius: 28px;
     max-width: 100%;
     vertical-align: middle;
+    /* object-fit: inherit; */
+    /* object-fit: contain; */
+    /* object-position: 100% 0; */
+    /* object-fit: scale-down; */
 }
 
 
@@ -30,7 +34,7 @@
     position: relative;
     border: transparent solid;
     box-shadow: 5px 1px 12px rgb(166, 162, 162);
-    height: 680px;
+    height: 650px;
     border-radius: 28px;
     flex-direction: row;
     align-items: center;

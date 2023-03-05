@@ -148,7 +148,7 @@ const pinReducer = (state = initialState, action) => {
 
       case LOAD_SPECIFIC_PIN: {
         const newState = { ...state, onePin: {} };
-        console.log(action.onePin)
+        // console.log(action.onePin)
             newState.onePin = action.onePin
             return newState
         }
@@ -167,7 +167,7 @@ const pinReducer = (state = initialState, action) => {
 
       case UPDATE_PIN: {
         const newState = { ...state, allPins: { ...state.allPins}}
-        console.log('inside update pin reducer', newState)
+        // console.log('inside update pin reducer', newState)
         newState.allPins[action.pin.id] = action.pin;
         return newState
       }

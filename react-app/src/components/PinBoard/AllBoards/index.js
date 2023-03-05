@@ -3,6 +3,7 @@ import { Link, useHistory, NavLink, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { getBoards, oneBoard, deleteBoard } from "../../../store/pinBoard";
+import { getPins, onePin } from "../../../store/pin";
 import './AllBoards.css'
 import newboard from '../../Photo/newboard.png'
 
@@ -12,6 +13,7 @@ function AllBoards() {
     const dispatch = useDispatch();
     const history = useHistory();
     // const { boardId } = useParamas();
+    // const { pinId } = useParams();
 
     const [name, setName] = useState('');
     // const boardSelector = useSelector(state => state.boards.oneBoard);
@@ -22,6 +24,17 @@ function AllBoards() {
     const handleSubmit = async (e) => {
         e.preventDefault();
     }
+
+    // useEffect(() => {
+    //     dispatch(onePin(pinId))
+    // }, [dispatch])
+
+    // const pin = useSelector(state => {
+    //     return state.pins.allPins.pin
+    // });
+
+    // const pinArray = Object.values(pin);
+    // console.log('pin array test', pinArray[0])
 
     const sessionBoard = useSelector(state => {
         return state.boards.allBoards
@@ -51,8 +64,13 @@ function AllBoards() {
                         { boardArray.length ?
                         <ul>
                             <div id='boardCard' key={board.id}>
-                                <NavLink to={`/pinboards/${board.id}`}>
-                                    <img className='one-board-img' src={newboard}></img>
+                                <NavLink to={`/pinboards/${board.id}/details`}>
+                                <img className='one-board-img' src={newboard}></img>
+                                    {/* { pinArray.length ?
+                                        <img className='first-pin-image' src={pinArray.pin[0].imageUrl}></img>
+                                    :
+                                        <img className='one-board-img' src={newboard}></img>
+                                    } */}
                                 </NavLink>
                             </div>
                             <p className='board-name'>{board.name}</p>

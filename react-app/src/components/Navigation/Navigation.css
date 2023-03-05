@@ -109,6 +109,8 @@ a.visited {
   padding-left: 20px;
   padding-right: 20px;
   /* position: fixed; */
+  background-color: white;
+  margin-bottom: 10px;
 
 }
 

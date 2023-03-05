@@ -45,7 +45,9 @@ export const deleteJointable = (boardId) => async dispatch => {
 // thunk action creator
 export const addJointable = (payload, id) => async (dispatch) => {
   console.log('inside of add thunk')
-    const response = await fetch(`/api/pinboards/${id}/pinandboard`, {
+  console.log('payload from add jointable thunk', payload)
+  console.log('id from add jointable thunk', id)
+    const response = await fetch(`/api/pinboards/${id}/pinandboard/new`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(payload),
@@ -93,7 +95,8 @@ const jointableReducer = (state = initialState, action) => {
       case ADD_JOINTABLE: {
           const newState = {...state}
           const updated_boardpins = {}
-          updated_boardpins['totalBoardPins'] = action.like.likes
+          console.log('action add', action.add)
+          updated_boardpins = action.add
           newState.jointable = updated_boardpins
           return newState
         }

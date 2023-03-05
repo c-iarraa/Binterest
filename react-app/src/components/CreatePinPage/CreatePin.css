@@ -1,0 +1,126 @@
+.create-pin-container {
+    position: relative;
+    border: transparent solid;
+    background-color: white;
+    box-shadow: 5px 1px 12px rgb(166, 162, 162);
+    height: 650px;
+    border-radius: 28px;
+    flex-direction: row;
+    align-items: center;
+    width: 860px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.save-new-pin-button {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    color: white;
+    background-color: #e60023;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.right-side-new-pin {
+    padding: 0px 32px;
+    position: relative;
+    width: 512px;
+    margin-top: 120px;
+    display: flex;
+    flex-direction: column;
+}
+
+.create-pin-div {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+}
+
+.input-details {
+    font-family: Helvetica;
+    border: none;
+}
+
+.left-side-image {
+    width: 340px;
+    /* background-color: red; */
+}
+
+.new-pin-img {
+    padding-left: 20px;
+    padding-right: 20px;
+    /* background-color: green; */
+}
+
+.img-input-details {
+    width: 300px;
+    margin-top: 400px;
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    border-color: transparent;
+    /* background-color: blue; */
+}
+
+.input-title {
+    width: 400px;
+    font-size: 36px;
+    font-weight: 500;
+    border: none;
+    border-color: transparent;
+    border-bottom: 1px solid rgb(211,211,211);
+}
+
+.input-description {
+    margin-top: 50px;
+    width: 400px;
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    border-color: transparent;
+    border-bottom: 1px solid rgb(211,211,211);
+}
+
+.input-dest-link {
+    margin-top: 180px;
+    width: 400px;
+    padding: 15px;
+    font-size: 18px;
+    border: none;
+    border-color: transparent;
+    border-bottom: 1px solid rgb(211,211,211);
+}
+
+.fa-user {
+    color: white;
+    font-size: 1.3rem;
+}
+
+.user-info-div {
+    display: flex;
+    margin-top: 30px;
+}
+
+.user-info1 {
+    padding-left: 8px;
+
+}
+
+.user-info2 {
+    font-family: Helvetica;
+}
+
+.prof-button {
+    padding: 15px;
+    width: 17px;
+    border-radius: 50%;
+    border: none;
+    background-color:rgb(232,232,232);
+    color: grey;
+    cursor: pointer;
+}
