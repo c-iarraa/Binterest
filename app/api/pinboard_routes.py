@@ -39,23 +39,23 @@ def add_pins_to_board(id):
         pin.pinboards.append(board)
         db.session.commit()
 
-
     return {'message': 'Pin successfully added'}, 200
 
 
 
-# # Delete jointable pins for a pinboard when board is deleted
-# @pinboard_routes.route('<int:id>/pinandboard/delete', methods=["DELETE"])
-# # @login_required
-# def delete_board_pins(id):
+# Delete jointable pins for a pinboard when board is deleted
+@pinboard_routes.route('<int:id>/pinandboard/delete/<int:boardId>', methods=["DELETE"])
+# @login_required
+def delete_board_pins(id, boardId):
+    print('inside of delete backend route', id, boardId)
 
-#     # grab a specific pin by the id passed in through the url
-#     board = PinBoard.query.get(id)
+    board = PinBoard.query.get(boardId)
+    pin = Pin.query.get(id)
 
-#     db.session.delete(board)
-#     db.session.commit()
+    pin.pinboards.remove(board)
+    db.session.commit()
 
-#     return {'message': ['Boardpins has successfully deleted']}, 200
+    return {'message': ['Boardpin has successfully deleted']}, 200
 
 
 # Get all boards for a specific user

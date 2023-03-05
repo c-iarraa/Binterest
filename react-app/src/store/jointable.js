@@ -25,13 +25,13 @@ const load = (jointableList) => ({
 // - [ DONE ] Create and Export the Thunk action creator (this is to fetch and parse your data from your backend database)
 // Create the action creator to delete a board
 // thunk action creator
-export const deleteJointable = (boardId) => async dispatch => {
-  console.log('inside of delete jointable thunk')
-  console.log('board id inside of delete thunk', boardId)
-    const response = await fetch(`/api/pinboards/${boardId}/pinandboard`, {
+export const deleteJointable = (pinId, boardId) => async dispatch => {
+  console.log('inside of delete jointable thunk', )
+  console.log('pinId inside of delete thunk', pinId)
+    const response = await fetch(`/api/pinboards/${pinId}/pinandboard/delete/${boardId}`, {
         method: 'DELETE',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(boardId),
+        body: JSON.stringify(pinId),
       })
     if (response.ok){
      // Constant variable to specify the action type (pinandboard/deleteJointable”)

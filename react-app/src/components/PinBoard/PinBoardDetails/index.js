@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useHistory, useParams, NavLink } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
 import { oneBoard, deleteBoard } from "../../../store/pinBoard";
-import { getJointable } from "../../../store/jointable";
+import { getJointable, deleteJointable } from "../../../store/jointable";
 
 
 
@@ -15,17 +15,20 @@ function PinBoardDetails() {
     const boardSelector = useSelector(state => state.boards.oneBoard);
     console.log('board selector in component', boardSelector)
     const sessionUserId = useSelector(state => state.session.user.id);
-    // Find data with useSelector in your component
     const ownerId = useSelector(state => state?.boards.oneBoard.owner_id)
-    console.log('owner id', ownerId)
-    const boardpinSelector = useSelector(state => state?.jointable?.jointable[0])
+    // console.log('owner id', ownerId)
+    const boardpinSelector = useSelector(state => state?.jointable?.jointable[0]);
+    const sessionUser = useSelector(state => state.session.user);
+    // console.log('board id', boardId)
+
 
     useEffect(() => {
         dispatch(oneBoard(boardId))
         dispatch(getJointable(boardId))
     }, [boardId, dispatch])
 
-    if(!boardpinSelector) return null
+
+    if(!boardpinSelector) return null;
     if (!ownerId) return null;
 
     const deleteSpecificBoard = async (e) => {
@@ -33,6 +36,17 @@ function PinBoardDetails() {
         dispatch(deleteBoard(boardId))
         history.push('/pinboards')
     }
+
+    const handlePinDelete = async (pinId) => {
+        if(!sessionUser){
+         return  history.push('/login')
+        }
+        // const payload = {
+        //   'board_id': boardId,
+        //   'pin_id': pinId
+        // }
+         dispatch(deleteJointable(pinId, boardId))
+      }
 
 
     return   (
@@ -59,12 +73,13 @@ function PinBoardDetails() {
                 </div>
                 <h1>ADD SOMETHING HERE TO COUNT THE AMOUNT OF PINS IN BOARD</h1>
                 <div className='pins-in-board'>
-                {boardpinSelector.pin.map(el => (
+                {boardpinSelector.pin.map(pin => (
                 <ul>
-                    <div id='pinCard-in-board' key={el.id}>
-                        <NavLink to={`/pins/${el.id}`}>
-                            <img className='pinBoardImg' src={el.imageUrl}></img>
+                    <div id='pinCard-in-board' key={pin.id}>
+                        <NavLink to={`/pins/${pin.id}`}>
+                            <img className='pinBoardImg' src={pin.imageUrl}></img>
                         </NavLink>
+                        <NavLink className='delete-board-pin' to={`/pinboards`} onClick={() => handlePinDelete(pin.id)}> Delete</NavLink>
                     </div>
                 </ul>
                 ))}
