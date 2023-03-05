@@ -4,6 +4,7 @@ import { logout } from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import DemoUserModal from "../DemoUserModal";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -39,17 +40,17 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
+      <button onClick={openMenu} className='profileButton'>
+        <i class="fa-solid fa-user"></i>
       </button>
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
           <>
-            <li>{user.username}</li>
-            <li>{user.email}</li>
-            <li>
-              <button onClick={handleLogout}>Log Out</button>
-            </li>
+            <p>{user.username}</p>
+            <p>{user.email}</p>
+            <p>
+              <button className='logout-button' onClick={handleLogout}>Log out</button>
+            </p>
           </>
         ) : (
           <>
@@ -63,6 +64,12 @@ function ProfileButton({ user }) {
               buttonText="Sign Up"
               onItemClick={closeMenu}
               modalComponent={<SignupFormModal />}
+            />
+
+            <OpenModalButton
+              itemText="Demo User Login"
+              onItemClick={closeMenu}
+              modalComponent={<DemoUserModal />}
             />
           </>
         )}

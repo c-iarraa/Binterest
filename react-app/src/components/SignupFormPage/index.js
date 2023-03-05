@@ -11,6 +11,9 @@ function SignupFormPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [first_name, setFirst_name] = useState('');
+	const [last_name, setLast_name] = useState('');
+	const [age, setAge] = useState('')
   const [errors, setErrors] = useState([]);
 
   if (sessionUser) return <Redirect to="/" />;
@@ -18,7 +21,7 @@ function SignupFormPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password === confirmPassword) {
-        const data = await dispatch(signUp(username, email, password));
+        const data = await dispatch(signUp(username, email, password, first_name, last_name, age));
         if (data) {
           setErrors(data)
         }
@@ -34,6 +37,33 @@ function SignupFormPage() {
         <ul>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>
+        <label>
+					First Name
+					<input
+						type="test"
+						value={first_name}
+						onChange={(e) => setFirst_name(e.target.value)}
+						required
+					/>
+				</label>
+				<label>
+					Last Name
+					<input
+						type="test"
+						value={last_name}
+						onChange={(e) => setLast_name(e.target.value)}
+						required
+					/>
+				</label>
+				<label>
+					Age
+					<input
+						type="number"
+						value={age}
+						onChange={(e) => setAge(e.target.value)}
+						required
+					/>
+				</label>
         <label>
           Email
           <input
