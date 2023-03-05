@@ -24,11 +24,11 @@ def seed():
         undo_pins()
         undo_users()
 
-    # seed_users()
+    seed_users()
     # print('users seeded')
-    # seed_pins()
+    seed_pins()
     # print('pins seeded')
-    # seed_pinboards()
+    seed_pinboards()
     # print('pinboards seeded')
     seed_pins_boards_table()
     # print('join table seeded')
@@ -39,7 +39,7 @@ def seed():
 @seed_commands.command('undo')
 def undo():
     undo_pins_boards_table()
-    # undo_pinboards()
-    # undo_pins()
-    # undo_users()
+    undo_pinboards()
+    undo_pins()
+    undo_users()
     # Add other undo functions here
