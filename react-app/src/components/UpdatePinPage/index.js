@@ -62,9 +62,9 @@ function UpdatePin() {
             <div className="edit-pin-container">
                 <h1 className='edit-pin-header'>Edit this Pin</h1>
                 <div className='all-edit-inputs'>
-                    <label>
-                        Title:
-                        <input className='update-inputs'
+                    <label className='update-pin-inputss'>
+                        Title
+                        <input className='update-pin-inputs'
                         type="text"
                         placeholder='Add your title'
                         value={title}
@@ -73,9 +73,9 @@ function UpdatePin() {
                         required
                         />
                     </label>
-                    <label>
-                        Description:
-                        <input className='update-inputs'
+                    <label className='update-pin-inputss'>
+                        Description
+                        <input className='update-pin-inputs'
                         type="text"
                         placeholder='Tell everyone what your pin is about'
                         value={description}
@@ -84,9 +84,9 @@ function UpdatePin() {
                         required
                         />
                     </label>
-                    <label>
-                        Website:
-                        <input className='input-inputs'
+                    <label className='update-pin-inputss'>
+                        Website
+                        <input className='update-pin-inputs'
                         type="link"
                         placeholder='Add a destination link'
                         value={destinationLink}
@@ -94,11 +94,11 @@ function UpdatePin() {
                         onChange={updateDestinationLink}
                         />
                     </label>
-                </div>
                 <div className='button-div'>
-                    <button className='update-button' type="submit">Save</button>
+                    <button className='update-pin-button' type="submit">Save</button>
                 </div>
                 </div>
+            </div>
         </form>
     </section>
     )
