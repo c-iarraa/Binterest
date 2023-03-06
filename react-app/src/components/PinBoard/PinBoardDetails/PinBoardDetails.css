@@ -1,0 +1,95 @@
+.pins-in-board {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    grid-auto-flow: row dense;
+    list-style: none;
+    height: auto;
+    width: auto;
+    margin-top: 40px;
+}
+
+.pinBoardImg {
+    width: 280px;
+    border-radius: 14px;
+    height: 500px;
+    object-fit: cover;
+}
+
+.delete-board-pin {
+    position: relative;
+    bottom: 480px;
+    left: 190px;
+    color: white;
+    background-color: #e60023;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: Helvetica;
+    text-decoration: none;
+}
+
+#root {
+    padding-bottom: 30px;
+}
+
+.board-name {
+    font-size: 35px;
+    font-weight: 500;
+    text-align: center;
+    font-family: Helvetica;
+}
+
+.board-update-delete-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    left: 16px;
+}
+
+.board-delete-div {
+   align-items: center;
+   padding-top: 18px;
+}
+
+.board-delete {
+    color: black;
+    padding: 20px;
+    border: 1px solid rgb(232,232,232);
+    background-color: rgb(232,232,232);
+    border-radius: 20px;
+    font-size: 28px;
+}
+
+.board-delete-text {
+    font-family: Helvetica;
+    padding-bottom: 10px;
+    top: 50px;
+    font-size: 14px;
+}
+
+.board-update-div {
+    /* background-color: red; */
+    padding-left: 20px;
+}
+
+.update-board-div {
+    padding-top: 40px;
+}
+
+.board-update {
+    color: black;
+    padding: 20px;
+    border: 1px solid rgb(232,232,232);
+    background-color: rgb(232,232,232);
+    border-radius: 20px;
+    font-size: 28px;
+}
+
+.board-update-text {
+    font-family: Helvetica;
+    font-size: 14px;
+    padding-top: 20px;
+}

@@ -17,10 +17,6 @@ def seed_pins_boards_table():
     db.session.commit()
 
 
-    # all_jointables = [jointable_1]
-    # add_jointables = [db.session.add(jointable) for jointable in all_jointables]
-    # db.session.commit()
-
 
 
 # Uses a raw SQL query to TRUNCATE or DELETE the users table. SQLAlchemy doesn't

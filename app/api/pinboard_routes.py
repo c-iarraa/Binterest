@@ -67,7 +67,7 @@ def get_boards_by_current_user(id):
     # boards = PinBoard.query.all()
     # print ('boards from backend route', boards)
 
-    return {'boards' :[board.to_dict() for board in boards]} , 200
+    return {'boards' :[board.to_dict_pins() for board in boards]} , 200
     # return {'boards':board.pins_boards_table()}, 200
 
 

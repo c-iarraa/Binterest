@@ -45,15 +45,15 @@ function Navigation({ isLoaded }){
 				</div>
 
 				<div className='boards-link'>
-					{/* <ul className='create-board-button'> */}
 							{sessionUser &&
 							<NavLink className="board-button" exact to="/pinboards">PinBoards</NavLink>
 							}
-					{/* </ul> */}
 				</div>
 
 				<div className='create-links'>
-					<button onClick={openMenu} className='create-buttons'>Create <i class="fa-solid fa-circle-chevron-down"></i></button>
+					{sessionUser &&
+						<button onClick={openMenu} className='create-buttons'>Create <i class="fa-solid fa-circle-chevron-down"></i></button>
+					}
 					<ul className={ulClassName} ref={ulRef}>
 							{sessionUser &&
 							<div className='create-links-dropdown'>

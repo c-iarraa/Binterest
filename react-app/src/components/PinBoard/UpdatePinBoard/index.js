@@ -3,7 +3,7 @@ import { useHistory, useParams } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react"
 import { updateBoard, deleteBoard, oneBoard} from "../../../store/pinBoard";
-// import './UpdatePinBoard.css'
+import './UpdatePinBoard.css'
 
 
 function UpdatePinBoard() {
@@ -53,7 +53,7 @@ function UpdatePinBoard() {
     const deleteSpecificBoard = async (e) => {
         e.preventDefault()
         dispatch(deleteBoard(boardId))
-        history.push('/pinboards')
+        history.push('/')
     }
 
 
@@ -70,8 +70,8 @@ function UpdatePinBoard() {
             <div className='edit-board-container'>
                 <h1 className='edit-board-header'>Edit your board</h1>
                 <div className='all-edit-board-inputs'>
-                    <label>
-                        Name:
+                    <label className='update-inputs'>
+                        Name
                         <input className='update-board-inputs'
                         type="text"
                         placeholder='Add your name'
@@ -81,15 +81,17 @@ function UpdatePinBoard() {
                         required
                         />
                     </label>
-                    <h1>POSSIBLY ADD SOMETHING HERE TO MAKE A DESCRIPTION</h1>
+                    {/* <h1>POSSIBLY ADD SOMETHING HERE TO MAKE A DESCRIPTION</h1> */}
                     <div className='board-delete-div'>
                         {(ownerId === sessionUserId) &&
                         <div>
                                 <div className='update-board-delete-div'>
-                                    <h3 className='action-header'>Action</h3>
+                                    <p className='action-header'>Action</p>
                                     <button className='update-board-delete-text' onClick={deleteSpecificBoard}>Delete Board</button>
-                                    <h2 className='delete-caption'>Delete this board and all its Pins forever.</h2>
-                                    <h2 className='delete-caption'>You can't undo this!</h2>
+                                    <div className='delete-captions'>
+                                        <p className='delete-caption1'>Delete this board and all its Pins forever.</p>
+                                        <p className='delete-caption2'>You can't undo this!</p>
+                                    </div>
                                 </div>
                         </div>
                         }

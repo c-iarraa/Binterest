@@ -55,7 +55,7 @@ function CreatePin() {
                </ul>
                <div className='create-pin-div'>
                     <div className='left-side-image'>
-                        <p>possibly display something here to show preview of selected image url</p>
+                        {/* <p>possibly display something here to show preview of selected image url</p> */}
                         <label className='new-pin-img'>
                             <input className='img-input-details'
                             type="url"
@@ -82,7 +82,7 @@ function CreatePin() {
                                 <i class="fa-solid fa-user"></i>
                             </div>
                             <div className='user-info1'>
-                                <p className='user-info2'>session user </p>
+                                <p className='user-info2'>{sessionUser?.username}</p>
                             </div>
                         </div>
 
@@ -106,7 +106,9 @@ function CreatePin() {
                         </label>
                     </div>
                 </div>
+                {sessionUser &&
                 <button className='save-new-pin-button' type="submit">Save</button>
+                }
             </form>
 
         </nav>

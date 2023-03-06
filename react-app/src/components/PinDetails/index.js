@@ -63,38 +63,37 @@ function PinDetails() {
             </ul> */}
             <div className='pin-details-container'>
                 {/* <div className='pin-div'> */}
-                    <div className='left-side-card'>
-                        <div className='pin-image-container'>
-                            <div className='single-pin-image'>
-                                <img className='single-pin-image' src={pinSelector.imageUrl}></img>
-                            </div>
+                <div className='left-side-card'>
+                    <div className='pin-image-container'>
+                        <div className='single-pin-image'>
+                            <img className='single-pin-image' src={pinSelector.imageUrl}></img>
                         </div>
                     </div>
-                    <div className='right-side-card'>
-                        <div className='update-delete-div'>
-                            {(pinSelector.owner_id === sessionUserId) &&
+                </div>
+                <div className='right-side-card'>
+                    <div className='update-delete-div'>
+                        {(pinSelector.owner_id === sessionUserId) &&
                             <div className='update-delete-buttons'>
-                                    <div>
-                                        <button className='delete-text' onClick={deleteSpecificPin}>Delete Pin</button>
-                                    </div>
-                                    <div className='update-div'>
-                                        <NavLink className='update-text' to={`/pins/${pinSelector.id}/update`}>Update Pin</NavLink>
-                                    </div>
+                                <div>
+                                    <button className='delete-text' onClick={deleteSpecificPin}>Delete Pin</button>
+                                </div>
+                                <div className='update-div'>
+                                    <NavLink className='update-text' to={`/pins/${pinSelector.id}/update`}>Update Pin</NavLink>
+                                </div>
                             </div>
-                             }
-                             <AddToBoard/>
-                        </div>
-                        <div className='add-to-pinboard-container'>
-
-                        </div>
-                        <div className='pin-info'>
-                            <a className='pin-destination-link'href={pinSelector.destinationLink}>{pinSelector.destinationLink}</a>
-                            <h1 className='pin-title'>{pinSelector.title}</h1>
-                            <p className='pin-description'>{pinSelector.description}</p>
-                        </div>
-                        <CommentBar/>
+                        }
                     </div>
-                {/* </div> */}
+                    <div className="add-to-board"><AddToBoard /></div>
+                    <div className='add-to-pinboard-container'>
+
+                    </div>
+                    <div className='pin-info'>
+                        <a className='pin-destination-link' href={pinSelector.destinationLink}>{pinSelector.destinationLink}</a>
+                        <h1 className='pin-title'>{pinSelector.title}</h1>
+                        <p className='pin-description'>{pinSelector.description}</p>
+                    </div>
+                    <CommentBar />
+                </div>
             </div>
         </nav>
     )

@@ -1,0 +1,88 @@
+.edit-board-container {
+    font-family: Helvetica;
+    position: relative;
+    border: transparent solid;
+    box-shadow: 5px 1px 12px rgb(166, 162, 162);
+    height: 450px;
+    border-radius: 28px;
+    flex-direction: row;
+    align-items: center;
+    width: 480px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.edit-board-header {
+    font-family: Helvetica;
+    text-align: center;
+    font-weight: 600;
+    font-size: 30px;
+    margin-top: 30px;
+}
+
+.update-inputs {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    color: #5A5A5A;
+}
+
+.update-board-inputs {
+    padding: 12px;
+    border-radius: 12px;
+    border: 2px solid rgb(232,232,232)
+}
+
+.update-board-delete-div {
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.action-header {
+    font-size: 13px;
+    margin-bottom: 3px;
+}
+
+.update-board-delete-text {
+    border: none;
+    background-color: transparent;
+    font-size: 22px;
+    font-weight: 600;
+    right: 8px;
+    margin-left: -8px;
+    cursor: pointer;
+}
+
+.update-board-delete-text:hover {
+    background-color: rgb(232,232,232);
+}
+
+.delete-captions {
+    font-size: 16px;
+    font-weight: lighter;
+    margin-top: -13px;
+}
+
+.delete-caption2 {
+    margin-top: -15px;
+}
+
+.update-board-button {
+    position: absolute;
+    right: 30px;
+    margin-bottom: 20px;
+    color: white;
+    background-color: #e60023;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.edit-board-button-div {
+    /* background-color: yellow; */
+    padding: 20px;
+    border-top: 1px solid rgb(211,211,211);
+}
