@@ -87,19 +87,24 @@ const jointableReducer = (state = initialState, action) => {
       case LOAD_JOINTABLE: {
 
         const newState = { ...state }
-        newState.jointable = action.jointableList.board_pins
+        newState.jointable = action.jointableList.board_pins[0]
         // console.log('in reducer', action.jointableList.board_pins)
        return newState
       }
 
+      // case ADD_JOINTABLE: {
+      //     const newState = {...state}
+      //     const updated_boardpins = {}
+      //     console.log('action add', action.add)
+      //     updated_boardpins = action.add
+      //     newState.jointable = updated_boardpins
+      //     return newState
+      //   }
       case ADD_JOINTABLE: {
-          const newState = {...state}
-          const updated_boardpins = {}
-          console.log('action add', action.add)
-          updated_boardpins = action.add
-          newState.jointable = updated_boardpins
-          return newState
-        }
+        const newState = {...state}
+        newState['jointable'] = action.add
+        return newState
+      }
 
       case REMOVE_JOINTABLE: {
         const newState = {...state}

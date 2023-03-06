@@ -1,23 +1,41 @@
-
-
+.boardCard {
+    /* display: flex; */
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    font-family: Helvetica;
+    border: transparent solid;
+    box-shadow: 5px 1px 12px rgb(166, 162, 162);
+    height: 280px;
+    border-radius: 28px;
+    /* align-items: center; */
+    width: 320px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(242, 242, 242);
+}
 
 .all-pin-card {
-    background-color: rgb(232,232,232);
-    border: transparent solid;
-    border-radius: 20px;
-    width: 500px;
-    display: flex;
-    align-items: center;
-    align-self: center;
-    /* height: 200px; */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    row-gap: 40px;
+    grid-gap: 40px;
+    grid-auto-flow: row dense;
+    list-style: none;
+    height: auto;
+    width: auto;
 }
 
-.boardCard {
-    width: 80px;
-}
-
-.board-name {
+.one-board-name {
     font-family: Helvetica;
+    font-weight: 400;
+    margin-top: 2px;
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    margin-right: 230px;
+
 }
 
 .pin-amount {
@@ -27,4 +45,14 @@
 
 .no-board-text {
     color: black;
+    font-family: Helvetica;
+    font-size: 24px;
+    margin-top: 50px;
+}
+
+.one-board-img {
+    border-radius: 20px;
+    width: 300px;
+    padding-left: 10px;
+    padding-top: 10px;
 }

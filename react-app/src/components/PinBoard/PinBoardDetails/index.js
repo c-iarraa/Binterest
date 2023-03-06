@@ -17,10 +17,8 @@ function PinBoardDetails() {
     console.log('board selector in component', boardSelector)
     const sessionUserId = useSelector(state => state?.session?.user?.id);
     const ownerId = useSelector(state => state?.boards?.oneBoard?.owner_id)
-    // console.log('owner id', ownerId)
-    const boardpinSelector = useSelector(state => state?.jointable?.jointable[0]);
+    const boardpinSelector = useSelector(state => state?.jointable?.jointable);
     const sessionUser = useSelector(state => state.session.user);
-    // console.log('board id', boardId)
 
 
     useEffect(() => {
@@ -32,6 +30,7 @@ function PinBoardDetails() {
     if(!boardpinSelector) return null;
     if (!ownerId) return null;
     if (!sessionUser) return null;
+
     const deleteSpecificBoard = async (e) => {
         e.preventDefault()
         dispatch(deleteBoard(boardId))
@@ -49,8 +48,10 @@ function PinBoardDetails() {
             dispatch(deleteJointable(pinId, boardId))
         }
 
+        if (!boardpinSelector.pin) return null;
 
-        return   (
+
+        return boardpinSelector && boardpinSelector.pin &&  (
             <nav className='board-details-container'>
 
                 <div className='upper-board-layout'>

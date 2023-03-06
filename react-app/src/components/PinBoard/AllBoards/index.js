@@ -53,12 +53,17 @@ function AllBoards() {
 
     return sessionUser && (
         <nav className='all-boards-container'>
+                { !boardArray.length &&
+                <div className='no-board-header'>
+                    <p className='no-board-text'> You currently have no pinboards... Let's make one!</p>
+                </div>
+                }
             <div className='all-pin-card'>
                 {boardArray.map(board => (
                     <div>
                         { boardArray.length &&
                         <ul>
-                            <div id='boardCard' key={board.id}>
+                            <div className='boardCard' key={board.id}>
                                 <NavLink to={`/pinboards/${board.id}/details`}>
                                 {(boardArray.pin) ?
                                     <img className='one-board-img' src={board.pin[0].imageUrl}></img>
@@ -66,15 +71,10 @@ function AllBoards() {
                                     <img className='one-board-img' src={newboard}></img>
                                 }
                                 </NavLink>
+                            <h4 className='one-board-name'>{board.name}</h4>
                             </div>
-                            <p className='board-name'>{board.name}</p>
-                            <p className='pin-amount'>ADD SOMETHING HERE TO COUNT ALL THE PINS</p>
+                            {/* <p className='pin-amount'>ADD SOMETHING HERE TO COUNT ALL THE PINS</p> */}
                         </ul>
-                        }
-                        { !boardArray.length &&
-                        <div className='no-board-header'>
-                            <p className='no-board-text'> "You currently have no pinboards... Let's make one!"</p>
-                        </div>
                         }
                     </div>
                 ))}
