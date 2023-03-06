@@ -21,6 +21,7 @@ function SignupFormPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const errors = [];
     if (password === confirmPassword) {
         const data = await dispatch(signUp(username, email, password, first_name, last_name, age));
         if (data) {
@@ -46,9 +47,19 @@ function SignupFormPage() {
               {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
             <label className='inputsss'>
-              Email
+              Username
               <input className='signup-inputs'
                 type="text"
+                value={username}
+                placeholder='Username'
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              />
+            </label>
+            <label className='inputsss'>
+              Email
+              <input className='signup-inputs'
+                type="email"
                 value={email}
                 placeholder='Email'
                 onChange={(e) => setEmail(e.target.value)}
