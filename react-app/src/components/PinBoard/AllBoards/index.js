@@ -17,7 +17,8 @@ function AllBoards() {
 
     const [name, setName] = useState('');
     // const boardSelector = useSelector(state => state.boards.oneBoard);
-    const sessionUserId = useSelector(state => state.session.user.id);
+    const sessionUserId = useSelector(state => state?.session?.user?.id);
+    const sessionUser = useSelector(state => state?.session?.user);
     // console.log('session user id', sessionUserId)
 
 
@@ -25,16 +26,6 @@ function AllBoards() {
         e.preventDefault();
     }
 
-    // useEffect(() => {
-    //     dispatch(onePin(pinId))
-    // }, [dispatch])
-
-    // const pin = useSelector(state => {
-    //     return state.pins.allPins.pin
-    // });
-
-    // const pinArray = Object.values(pin);
-    // console.log('pin array test', pinArray[0])
 
     const sessionBoard = useSelector(state => {
         return state.boards.allBoards
@@ -49,6 +40,10 @@ function AllBoards() {
     }, [dispatch])
 
 
+    // if (!sessionUser) {
+    //     return history.push('/login')
+    // }
+
     // if (!sessionBoard) return null;
     // if (!boardArray) return null;
     // useEffect(() => {
@@ -56,27 +51,27 @@ function AllBoards() {
     // }, [boardId, dispatch])
 
 
-    return (
+    return sessionUser && (
         <nav className='all-boards-container'>
             <div className='all-pin-card'>
                 {boardArray.map(board => (
                     <div>
-                        { boardArray.length ?
+                        { boardArray.length &&
                         <ul>
                             <div id='boardCard' key={board.id}>
                                 <NavLink to={`/pinboards/${board.id}/details`}>
-                                <img className='one-board-img' src={newboard}></img>
-                                    {/* { pinArray.length ?
-                                        <img className='first-pin-image' src={pinArray.pin[0].imageUrl}></img>
-                                    :
-                                        <img className='one-board-img' src={newboard}></img>
-                                    } */}
+                                {(boardArray.pin) ?
+                                    <img className='one-board-img' src={board.pin[0].imageUrl}></img>
+                                :
+                                    <img className='one-board-img' src={newboard}></img>
+                                }
                                 </NavLink>
                             </div>
                             <p className='board-name'>{board.name}</p>
                             <p className='pin-amount'>ADD SOMETHING HERE TO COUNT ALL THE PINS</p>
                         </ul>
-                        :
+                        }
+                        { !boardArray.length &&
                         <div className='no-board-header'>
                             <p className='no-board-text'> "You currently have no pinboards... Let's make one!"</p>
                         </div>

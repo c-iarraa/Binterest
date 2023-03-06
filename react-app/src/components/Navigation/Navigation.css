@@ -223,6 +223,8 @@ a.visited {
   padding: 10px;
   box-shadow: 5px 1px 12px rgb(166, 162, 162);
   left: 5px;
+  position: relative;
+  z-index: 9999;
 }
 
 .create-pin-link {
