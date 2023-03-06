@@ -2,16 +2,16 @@ from app.models import db, pins_boards_table, environment, SCHEMA
 
 def seed_pins_boards_table():
     jointable_1 = pins_boards_table.insert().values(pinboard_id=1, pin_id=2)
-    jointable_2 = pins_boards_table.insert().values(pinboard_id=1, pin_id=6)
-    jointable_3 = pins_boards_table.insert().values(pinboard_id=2, pin_id=8)
-    jointable_4 = pins_boards_table.insert().values(pinboard_id=2, pin_id=12)
+    # jointable_2 = pins_boards_table.insert().values(pinboard_id=1, pin_id=6)
+    # jointable_3 = pins_boards_table.insert().values(pinboard_id=2, pin_id=8)
+    # jointable_4 = pins_boards_table.insert().values(pinboard_id=2, pin_id=12)
 
 
 
     db.session.execute(jointable_1)
-    db.session.execute(jointable_2)
-    db.session.execute(jointable_3)
-    db.session.execute(jointable_4)
+    # db.session.execute(jointable_2)
+    # db.session.execute(jointable_3)
+    # db.session.execute(jointable_4)
 
 
     db.session.commit()

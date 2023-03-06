@@ -12,9 +12,10 @@ def seed_pinboards():
 
 
 
+  db.session.add(pinboard1)
+  db.session.add(pinboard2)
+  db.session.add(pinboard3)
 
-  all_pinboards = [pinboard1, pinboard2, pinboard3]
-  add_pinboards = [db.session.add(pinboard) for pinboard in all_pinboards]
   db.session.commit()
 
 
