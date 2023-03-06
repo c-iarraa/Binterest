@@ -1,148 +1,62 @@
-# Flask React Project
-
-This is the starter for the Flask React project.
-
-## Getting started
-1. Clone this repository (only this branch)
-
-2. Install dependencies
-
-      ```bash
-      pipenv install -r requirements.txt
-      ```
-
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
-
-4. Make sure the SQLite3 database connection URL is in the **.env** file
-
-5. This starter organizes all tables inside the `flask_schema` schema, defined
-   by the `SCHEMA` environment variable.  Replace the value for
-   `SCHEMA` with a unique name, **making sure you use the snake_case
-   convention**.
-
-6. Get into your pipenv, migrate your database, seed your database, and run your Flask app
-
-   ```bash
-   pipenv shell
-   ```
-
-   ```bash
-   flask db upgrade
-   ```
-
-   ```bash
-   flask seed all
-   ```
-
-   ```bash
-   flask run
-   ```
-
-7. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
+# Binterest
 
 
-## Deployment through Render.com
+Binterest is a clone website that was inspired by a very popular site, Pinterest.
 
-First, refer to your Render.com deployment articles for more detailed
-instructions about getting started with [Render.com], creating a production
-database, and deployment debugging tips.
+Binterest : API Documentation
 
-From the [Dashboard], click on the "New +" button in the navigation bar, and
-click on "Web Service" to create the application that will be deployed.
+Live Deployment link: [https://binterest-fp7n.onrender.com]
 
-Look for the name of the application you want to deploy, and click the "Connect"
-button to the right of the name.
+Live Wiki Link: [https://github.com/c-iarraa/Binterest.wiki.git]
 
-Now, fill out the form to configure the build and start commands, as well as add
-the environment variables to properly deploy the application.
+## Available Features (CRUD)
+#
+>Create
+>- Create a pin
+>- Create a pinboard
+>- Create a pin image
 
-### Part A: Configure the Start and Build Commands
+>Read
+>- Read a pin, its image, and its descriptions
+>- Read the name of pinboards you make
+>- Read the session user and all others pins
 
-Start by giving your application a name.
+>Update
+>- Update a pin
+>- Update a pinboard
 
-Leave the root directory field blank. By default, Render will run commands from
-the root directory.
+>Delete
+>- Delete a pin
+>- Delete a pinboard
 
-Make sure the Environment field is set set to "Python 3", the Region is set to
-the location closest to you, and the Branch is set to "main".
 
-Next, add your Build command. This is a script that should include everything
-that needs to happen _before_ starting the server.
+## Home/Splash Page
 
-For your Flask project, enter the following command into the Build field, all in
-one line:
+<img width="1434" alt="Screen Shot 2023-03-06 at 12 50 25 AM" src="https://user-images.githubusercontent.com/107008372/223062632-105db5ad-3aaf-46ea-90df-182bf9fe92f6.png">
 
-```shell
-# build command - enter all in one line
-npm install --prefix react-app &&
-npm run build --prefix react-app &&
-pip install -r requirements.txt &&
-pip install psycopg2 &&
-flask db upgrade &&
-flask seed all
-```
 
-This script will install dependencies for the frontend, and run the build
-command in the __package.json__ file for the frontend, which builds the React
-application. Then, it will install the dependencies needed for the Python
-backend, and run the migration and seed files.
+## Detail Page for a Pin
 
-Now, add your start command in the Start field:
+<img width="1420" alt="Screen Shot 2023-03-06 at 12 51 44 AM" src="https://user-images.githubusercontent.com/107008372/223062597-2852d0f7-72e8-4513-bc25-800a4f2a28f7.png">
 
-```shell
-# start script
-gunicorn app:app
-```
 
-_If you are using websockets, use the following start command instead for increased performance:_
+## Details Page for a Board
 
-`gunicorn --worker-class eventlet -w 1 app:app`
+<img width="1420" alt="Screen Shot 2023-03-06 at 12 52 04 AM" src="https://user-images.githubusercontent.com/107008372/223062533-52abfbeb-f9b3-439d-ae6c-00d8925460c6.png">
 
-### Part B: Add the Environment Variables
 
-Click on the "Advanced" button at the bottom of the form to configure the
-environment variables your application needs to access to run properly. In the
-development environment, you have been securing these variables in the __.env__
-file, which has been removed from source control. In this step, you will need to
-input the keys and values for the environment variables you need for production
-into the Render GUI.
+## Login Page
 
-Click on "Add Environment Variable" to start adding all of the variables you
-need for the production environment.
+<img width="1433" alt="Screen Shot 2023-03-06 at 12 52 33 AM" src="https://user-images.githubusercontent.com/107008372/223062452-32d4ab50-dcf7-4427-841a-a50342cc75b8.png">
 
-Add the following keys and values in the Render GUI form:
 
-- SECRET_KEY (click "Generate" to generate a secure secret for production)
-- FLASK_ENV production
-- FLASK_APP app
-- SCHEMA (your unique schema name, in snake_case)
-- REACT_APP_BASE_URL (use render.com url, located at top of page, similar to
-  https://this-application-name.onrender.com)
+## Sign Up Page
 
-In a new tab, navigate to your dashboard and click on your Postgres database
-instance.
+<img width="1428" alt="Screen Shot 2023-03-06 at 12 52 43 AM" src="https://user-images.githubusercontent.com/107008372/223062376-d926b7e0-c7cf-4084-9df6-66ea16fd7c44.png">
 
-Add the following keys and values:
 
-- DATABASE_URL (copy value from Internal Database URL field)
+## All Boards Page
 
-_Note: Add any other keys and values that may be present in your local __.env__
-file. As you work to further develop your project, you may need to add more
-environment variables to your local __.env__ file. Make sure you add these
-environment variables to the Render GUI as well for the next deployment._
+<img width="1430" alt="Screen Shot 2023-03-06 at 12 52 20 AM" src="https://user-images.githubusercontent.com/107008372/223062492-70f47889-ac6a-47e7-b849-0b8a45eb63d5.png">
 
-Next, choose "Yes" for the Auto-Deploy field. This will re-deploy your
-application every time you push to main.
 
-Now, you are finally ready to deploy! Click "Create Web Service" to deploy your
-project. The deployment process will likely take about 10-15 minutes if
-everything works as expected. You can monitor the logs to see your build and
-start commands being executed, and see any errors in the build process.
-
-When deployment is complete, open your deployed site and check to see if you
-successfully deployed your Flask application to Render! You can find the URL for
-your site just below the name of the Web Service at the top of the page.
-
-[Render.com]: https://render.com/
-[Dashboard]: https://dashboard.render.com/
