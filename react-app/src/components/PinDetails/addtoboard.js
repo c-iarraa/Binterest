@@ -12,13 +12,13 @@ function AddToBoard() {
     const { pinId } = useParams();
     const history = useHistory();
     const ulRef = useRef();
-    const ownerId = useSelector(state => state.session.user.id);
-    const sessionUserId = useSelector(state => state.session.user.id);
-    const sessionUser = useSelector(state => state.session.user);
-    const boardSelector = useSelector(state => state.boards.oneBoard);
-    const oneBoardId = useSelector(state => state.boards.oneBoard.id);
-    const pinSelector = useSelector(state=> state.pins.onePin.pin);
-    const jointable = useSelector(state => state.jointable.jointable);
+    // const ownerId = useSelector(state => state.session.user.id);
+    const sessionUserId = useSelector(state => state?.session?.user?.id);
+    const sessionUser = useSelector(state => state?.session?.user);
+    // const boardSelector = useSelector(state => state.boards.oneBoard);
+    // const oneBoardId = useSelector(state => state.boards.oneBoard.id);
+    // const pinSelector = useSelector(state=> state.pins.onePin.pin);
+    // const jointable = useSelector(state => state.jointable.jointable);
 
     const [name, setName] = useState('');
     const [showMenu, setShowMenu] = useState(false);
@@ -53,7 +53,7 @@ function AddToBoard() {
 		//   }
 		// };
 
-        if (!ulRef.current.contains) return null;
+        // if (!ulRef.current.contains) return null;
         // if (!closeMenu) return null;
 
 		// document.addEventListener("click", closeMenu);
@@ -76,6 +76,10 @@ function AddToBoard() {
         }
          dispatch(addJointable(payload, pinId))
       }
+
+    if (!sessionUserId) return null;
+
+    if (!sessionUser) return null;
 
     return (
 

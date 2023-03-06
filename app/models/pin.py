@@ -11,7 +11,7 @@ SCHEMA = os.environ.get("SCHEMA")
 
 
 class Pin(db.Model):
-    __tablename__: 'pins'
+    __tablename__= 'pins'
 
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}

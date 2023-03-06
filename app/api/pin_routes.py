@@ -47,7 +47,7 @@ def get_pins_by_pin_id(id):
 
 # Create a pin
 @pin_routes.route('/<int:id>/create', methods=['POST'])
-# @login_required
+@login_required
 def create_pin(id):
     # print('!!!!!!!!!!')
     # print('inside create pin route', id)
@@ -78,7 +78,7 @@ def create_pin(id):
 
 # Edit a pin
 @pin_routes.route('/<int:id>/update', methods=['PUT'])
-# @login_required
+@login_required
 def edit_pin(id):
     # print('wewewewweweweweewewe')
     # print('inside edit pin route', id)
@@ -113,7 +113,7 @@ def edit_pin(id):
 
 # Delete a pin
 @pin_routes.route('/<int:id>', methods=["DELETE"])
-# @login_required
+@login_required
 def delete_pin(id):
     print('id from backend delete route', id)
     # grab a specific pin by the id passed in through the url

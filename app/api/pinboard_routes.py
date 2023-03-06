@@ -10,7 +10,7 @@ pinboard_routes = Blueprint('pinboards', __name__)
 
 # Get all jointable pins for a pinboard by pinboard-id
 @pinboard_routes.route('<int:id>/pinandboard')
-# @login_required
+@login_required
 def get_board_pins(id):
     # print('inside of backend route')
     test = PinBoard.query.filter(PinBoard.id == id).all()
@@ -19,7 +19,7 @@ def get_board_pins(id):
 
 # Add jointable pins to a pinboard by pin-id
 @pinboard_routes.route('/<int:id>/pinandboard/new', methods=["POST"])
-# @login_required
+@login_required
 def add_pins_to_board(id):
     print('inside of add pin backend route')
 
@@ -45,7 +45,7 @@ def add_pins_to_board(id):
 
 # Delete jointable pins for a pinboard when board is deleted
 @pinboard_routes.route('<int:id>/pinandboard/delete/<int:boardId>', methods=["DELETE"])
-# @login_required
+@login_required
 def delete_board_pins(id, boardId):
     print('inside of delete backend route', id, boardId)
 
@@ -60,7 +60,7 @@ def delete_board_pins(id, boardId):
 
 # Get all boards for a specific user
 @pinboard_routes.route('/<int:id>')
-# @login_required
+@login_required
 def get_boards_by_current_user(id):
     # print ('inside of route with id', id)
     boards = PinBoard.query.filter(PinBoard.owner_id == id)
@@ -73,6 +73,7 @@ def get_boards_by_current_user(id):
 
 # Get details of a board from an id
 @pinboard_routes.route('/<int:id>/details')
+@login_required
 def get_board_by_id(id):
     print('inside of backend details route')
     board = PinBoard.query.get(id)
@@ -87,7 +88,7 @@ def get_board_by_id(id):
 
 # Create a board
 @pinboard_routes.route('/<int:id>/create', methods=['POST'])
-# @login_required
+@login_required
 def create_board(id):
     # print('inside of create route')
     form = NewPinboard()
@@ -107,6 +108,7 @@ def create_board(id):
 
 # Edit a board
 @pinboard_routes.route('<int:id>/update', methods=['PUT'])
+@login_required
 def edit_board(id):
     print('inside of update route with id', id)
 
@@ -137,6 +139,7 @@ def edit_board(id):
 
 # Delete a board
 @pinboard_routes.route('<int:id>', methods=['DELETE'])
+@login_required
 def delete_board(id):
 
     # grab a specific pin by the id passed in through the url
