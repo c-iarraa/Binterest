@@ -64,6 +64,7 @@
     width: 290px;
     margin-top: 15px;
     color: white;
+    cursor: pointer;
 }
 
 .signup-container {
