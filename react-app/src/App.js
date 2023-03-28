@@ -13,6 +13,7 @@ import AllBoards from "./components/PinBoard/AllBoards";
 import CreatePinBoard from "./components/PinBoard/CreatePinBoard";
 import UpdatePinBoard from "./components/PinBoard/UpdatePinBoard";
 import PinBoardDetails from "./components/PinBoard/PinBoardDetails";
+import PinBySearch from "./components/SearchBar";
 import Footer from "./components/Footer";
 
 function App() {
@@ -44,6 +45,9 @@ function App() {
           </Route>
           <Route exact path='/'>
            <AllPins />
+         </Route>
+         <Route exact path='/search/:keyword'>
+           <PinBySearch />
          </Route>
          <Route exact path='/pinboards'>
            <AllBoards />

@@ -28,7 +28,7 @@ function CreatePinBoard() {
         .then (() => history.push('/pinboards'))
         .catch(
             async (res) => {
-                if (!res.ok) {
+                if (res.ok) {
                     const data = await res.json();
                     if (data && data.errors) setErrors(data.errors);
                 }

@@ -6,6 +6,34 @@ export const CREATE_PIN = "pins/CREATEPIN";
 export const REMOVE_PIN = "pins/REMOVEPIN";
 
 
+// ------------------------ search pins thunk ------------------------------------
+
+export const SEARCH_PINS = "pins/searchedPins";
+
+// regular action creators
+const search = (pins) => ({
+    type: SEARCH_PINS,
+    pins
+});
+
+
+// Create the action creator for searching all pins
+// thunk action creator
+export const search_pins = (keyword) => async (dispatch) =>{
+    const response = await fetch(`/api/pins/search/${keyword}`)
+
+    if (response.ok){
+     // Constant variable to specify the action type ('pins/searchedPins”)
+      const data = await response.json()
+      console.log('data from backend', data)
+      dispatch(search(data))
+      return data
+    }
+  }
+
+// ------------------------ search pins thunk ------------------------------------
+
+
 // regular action creators
 
 const remove = (pin) => ({
@@ -177,6 +205,15 @@ const pinReducer = (state = initialState, action) => {
         delete newState.allPins[action.id]
         return newState
       }
+
+      case SEARCH_PINS:
+            console.log('state from reducer', state)
+            const newState = { ...state, searchedPins: {} };
+            action.pins.Pins.forEach((pin) => {
+                newState.searchedPins[pin.id] = pin;
+            });
+            console.log('MEOW@@#',newState)
+            return newState;
 
     default:
       return state;

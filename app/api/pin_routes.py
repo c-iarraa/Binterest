@@ -8,6 +8,46 @@ from app.forms import NewPin
 pin_routes = Blueprint('pins', __name__)
 
 
+# ------------------------------------ search route -----------------------------------------
+
+@pin_routes.route("/search/<keyword>")
+def search_pin(keyword):
+
+  print(keyword)
+  queried_pins= Pin.query.filter(Pin.title.ilike(f"%{keyword}%")).all()
+
+  for pin in queried_pins:
+    print(pin.id)
+    pin.preview= None
+    # for image in restaurant_images:
+    #    if image.restaurant_id == restaurant.id and image.preview == True:
+    #     restaurant.preview=image.url
+
+
+  data={
+      "Pins":[{
+      "id": pin.id,
+      "owner_id": pin.owner_id,
+      "title": pin.title,
+      "description": pin.description,
+      "imageUrl" : pin.imageUrl,
+      "destinationLink" : pin.destinationLink,
+
+    } for pin in queried_pins],
+    # "page":4,"size":5
+    }
+
+  print('about to return data')
+  return data
+
+  return {"keyword": [keyword.to_dict() for keyword in queried_pins]}
+
+
+
+
+  # ------------------------------------ search route -----------------------------------------
+
+
 # Get all pins
 @pin_routes.route('/')
 def get_all_pins():
