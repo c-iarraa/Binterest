@@ -31,14 +31,10 @@ class Pin(db.Model):
     #     back_populates="pins"
     # )
 
+    comments = db.relationship(
+        "Comment", back_populates="pins", cascade="all, delete-orphan")
 
     pinboards = db.relationship("PinBoard", secondary=pins_boards_table, back_populates='pins')
-
-
-    # pinboards = db.relationship("PinBoard", back_populates='pins')
-
-
-
 
     users = db.relationship("User", back_populates="pins")
 
