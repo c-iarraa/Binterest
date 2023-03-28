@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {useHistory, useParams } from "react-router-dom";
+import { search_pins } from '../../store/pin';
 
 function SearchBar() {
     const dispatch = useDispatch()
@@ -15,6 +16,11 @@ function SearchBar() {
         return;
       }
 
+      const response = await dispatch(search_pins(keyword));
+      if (response) {
+        history.push(`/search/${keyword}`);
+      }
+      setKeyword("");
     };
 
     return (
@@ -25,11 +31,11 @@ function SearchBar() {
                     <i class="fa-solid fa-magnifying-glass"></i>
                   </button>
                   <input className='search-input-values'
-                    placeholder="Feature coming soon!"
+                    placeholder="Search"
                     value={keyword}
                     onChange={(e) => setKeyword(e.target.value)}
                     maxLength="100"
-                    disabled
+                    // disabled
                   />
                 </form>
               </div>
