@@ -21,6 +21,7 @@ class User(db.Model, UserMixin):
     updatedAt = db.Column(db.DateTime, nullable=False, server_default=func.now())
 
 
+    comments = db.relationship("Comment", back_populates="users")
     pins = db.relationship("Pin", back_populates="users")
     pinboards = db.relationship("PinBoard", back_populates="users")
 
