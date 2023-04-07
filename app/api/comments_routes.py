@@ -19,7 +19,7 @@ def delete_comment(comment_id):
 
     return {"message": 'successfully deleted'}
 
-#All comments for a specfic transaction by ID
+#All comments 
 @comment_routes.route('/<int:id>/comments')
 def all_comments(id):
     comments = Comment.query.filter(Comment.pin_id == id)
@@ -49,4 +49,3 @@ def post_comment(id):
         return {
             "errors": form.errors
         }, 400
-

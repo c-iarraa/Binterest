@@ -32,11 +32,11 @@ def seed_pins():
   pin9 = Pin(
     owner_id=9, title="Plants and Butterflies", description="Key West butterfly and nature conservatory BEST PLACE EVER!", imageUrl = "https://i.pinimg.com/750x/b4/ea/20/b4ea20f154c14fac2d41ac1f0b5bf351.jpg", destinationLink = 'https://keywestbutterfly.com/')
 
-  pin10 = Pin(
-    owner_id=10, title="String Of Pearls", description="String succulents are exactly what their name implies- succulents that are growing in a form of creeping strings or chains. All of these plants have somewhat similar characteristics, with pendant stems and green and fleshy leaves. Strings are formed by multiplying rows of leaves or forming a vine. String succulents do not require much care, which makes them perfect for outdoor and indoor hanging displays, as well as vertical gardens.", imageUrl = "https://i.pinimg.com/564x/e7/7a/7c/e77a7c223d43f7a77fb806b4bbdd683e.jpg", destinationLink = 'https://www.etsy.com/listing/1093034215/string-of-pearls-plants-succulents-sop?epik=dj0yJnU9dzYtRmc2TTBiM1U5alItMTZkczlOc3BaV2htYkVRb3ImcD0wJm49dXk2cjFUczBtWjB1V3FpYXJzcHJHdyZ0PUFBQUFBR1A0QkI0')
+  # pin10 = Pin(
+  #   owner_id=10, title="String Of Pearls", description="String succulents are exactly what their name implies- succulents that are growing in a form of creeping strings or chains. All of these plants have somewhat similar characteristics, with pendant stems and green and fleshy leaves. Strings are formed by multiplying rows of leaves or forming a vine. String succulents do not require much care, which makes them perfect for outdoor and indoor hanging displays, as well as vertical gardens.", imageUrl = "https://i.pinimg.com/564x/e7/7a/7c/e77a7c223d43f7a77fb806b4bbdd683e.jpg", destinationLink = 'https://www.etsy.com/listing/1093034215/string-of-pearls-plants-succulents-sop?epik=dj0yJnU9dzYtRmc2TTBiM1U5alItMTZkczlOc3BaV2htYkVRb3ImcD0wJm49dXk2cjFUczBtWjB1V3FpYXJzcHJHdyZ0PUFBQUFBR1A0QkI0')
 
-  pin11 = Pin(
-    owner_id=11, title="Bonsai Green Weeping Willow Tree ", description="BEAUTIFUL DWARF TREE: Weeping Willow Cutting. Vibrant Green Bark. Fast growing, a unique specimen indeed.", imageUrl = "https://i.pinimg.com/564x/15/bc/23/15bc23e55ce96118c78376054091a5a7.jpg", destinationLink ='https://www.etsy.com/listing/856495829/bonsai-green-weeping-willow-tree-thick?ref=sim_anchor&epik=dj0yJnU9ZnM4OXZxOU1IYWllMVVTS1pNSWhoYlMyOVVnRG9yN00mcD0wJm49NWtTMlNoZmx2VzRMdU13dzI0eTJCZyZ0PUFBQUFBR1A0Qko0')
+  # pin11 = Pin(
+  #   owner_id=11, title="Bonsai Green Weeping Willow Tree ", description="BEAUTIFUL DWARF TREE: Weeping Willow Cutting. Vibrant Green Bark. Fast growing, a unique specimen indeed.", imageUrl = "https://i.pinimg.com/564x/15/bc/23/15bc23e55ce96118c78376054091a5a7.jpg", destinationLink ='https://www.etsy.com/listing/856495829/bonsai-green-weeping-willow-tree-thick?ref=sim_anchor&epik=dj0yJnU9ZnM4OXZxOU1IYWllMVVTS1pNSWhoYlMyOVVnRG9yN00mcD0wJm49NWtTMlNoZmx2VzRMdU13dzI0eTJCZyZ0PUFBQUFBR1A0Qko0')
 
   pin12= Pin(
     owner_id=12, title="Hanging Plant Flower Glass Ball Vase Terrarium Wall Fish Tank Aquarium Decor", description="Quality is the first with best service. customers all are our friends. Fashion design,100% Brand New,high quality! Material: Glass, Color: transparent, Style: Fashion, Casual, Diameter: approx. 10cm/ 12cm/ 15cm, There is 2-3% difference according to manual measurement. please check the measurement chart carefully before you buy the item.", imageUrl = "https://i.pinimg.com/736x/cc/27/1c/cc271cc34b572bbf0c9ccded63725e50.jpg", destinationLink = 'https://www.walmart.com/ip/Hanging-Plant-Flower-Glass-Ball-Vase-Terrarium-Wall-Fish-Tank-Aquarium-Decor-UK/273398227')
@@ -57,8 +57,8 @@ def seed_pins():
   db.session.add(pin7)
   db.session.add(pin8)
   db.session.add(pin9)
-  db.session.add(pin10)
-  db.session.add(pin11)
+  # db.session.add(pin10)
+  # db.session.add(pin11)
   db.session.add(pin12)
   db.session.add(pin13)
   db.session.add(pin14)
