@@ -1,6 +1,7 @@
 from flask.cli import AppGroup
 from .users import seed_users, undo_users
 from .pins import seed_pins, undo_pins
+from .comments import seed_comments, undo_comments
 from .pinboards import seed_pinboards, undo_pinboards
 from .jointable import seed_pins_boards_table, undo_pins_boards_table
 
@@ -21,6 +22,7 @@ def seed():
         # Make sure to add all your other model's undo functions below
         undo_pins_boards_table()
         undo_pinboards()
+        undo_comments
         undo_pins()
         undo_users()
 
@@ -28,6 +30,8 @@ def seed():
     # print('users seeded')
     seed_pins()
     # print('pins seeded')
+    seed_comments()
+    # print('comments seeded')
     seed_pinboards()
     # print('pinboards seeded')
     seed_pins_boards_table()
@@ -40,6 +44,7 @@ def seed():
 def undo():
     undo_pins_boards_table()
     undo_pinboards()
+    undo_comments
     undo_pins()
     undo_users()
     # Add other undo functions here

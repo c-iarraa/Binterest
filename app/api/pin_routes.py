@@ -19,9 +19,6 @@ def search_pin(keyword):
   for pin in queried_pins:
     print(pin.id)
     pin.preview= None
-    # for image in restaurant_images:
-    #    if image.restaurant_id == restaurant.id and image.preview == True:
-    #     restaurant.preview=image.url
 
 
   data={
