@@ -13,7 +13,8 @@ import AllBoards from "./components/PinBoard/AllBoards";
 import CreatePinBoard from "./components/PinBoard/CreatePinBoard";
 import UpdatePinBoard from "./components/PinBoard/UpdatePinBoard";
 import PinBoardDetails from "./components/PinBoard/PinBoardDetails";
-import CreateComment from "./components/Comments/CreateComment";
+import CommentBar from "./components/PinDetails/comments/CreateComment";
+import UpdateComment from "./components/PinDetails/comments/UpdateComment";
 import PinBySearch from "./components/SearchBar";
 import Footer from "./components/Footer";
 
@@ -63,7 +64,10 @@ function App() {
            <PinBoardDetails />
          </Route>
          <Route exact path='/comments/:pinId'>
-           <CreateComment />
+           <CommentBar />
+         </Route>
+         <Route exact path='/comments/:pinId'>
+           <UpdateComment />
          </Route>
          <Footer />
         </Switch>

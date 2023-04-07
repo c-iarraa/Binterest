@@ -1,8 +1,8 @@
 from flask_wtf import FlaskForm
-from wtforms import TextAreaField
+from wtforms import StringField, IntegerField
 from wtforms.validators import DataRequired
 
 class NewComment(FlaskForm):
-
-    comment = TextAreaField('comment', validators=[DataRequired()])
-
+    pin_id = IntegerField('Pin Id', validators=[DataRequired()])
+    user_id = StringField('User Id', validators=[DataRequired()])
+    comment = StringField('Comment', validators=[DataRequired()])

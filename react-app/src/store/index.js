@@ -2,14 +2,14 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import session from './session'
 import pinReducer from './pin'
-import commentReducer from './comment';
+import commentsReducer from './comment';
 import boardReducer from './pinBoard';
 import jointableReducer from './jointable';
 
 const rootReducer = combineReducers({
   session,
   pins: pinReducer,
-  comments: commentReducer,
+  comments: commentsReducer,
   boards: boardReducer,
   jointable: jointableReducer
 });

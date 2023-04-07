@@ -131,6 +131,7 @@ export const updatePin = (pin, pinId) => async dispatch => {
 // Create the action creator for one pin
 // thunk action creator
 export const onePin = (pinId) => async dispatch => {
+  console.log("9837897489", pinId)
     const response = await fetch(`/api/pins/${pinId}`)
 
     if (response.ok){

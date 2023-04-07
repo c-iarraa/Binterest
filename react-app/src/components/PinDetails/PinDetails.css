@@ -61,12 +61,14 @@
 
 
  .comment-bar-form {
+   position: relative;
     width: 415px;
     padding: 24px 32px;
     border-top: 1px solid rgb(211,211,211);
     display: flex;
     flex-direction: row;
     border-bottom-right-radius: 28px;
+    z-index: 999;
  }
 
 
@@ -306,4 +308,46 @@
     display: flex;
     justify-content: flex-end;
     margin-top: -53px;
+  }
+
+  .comments-header {
+   font-family: Helvetica;
+   font-size: 20px;
+   font-weight: bolder;
+  }
+
+  .username-comment {
+   font-family: Helvetica;
+  }
+
+
+  .post-comment-button {
+   position: absolute;
+   border: solid 1px #e60023;
+   border-radius: 50%;
+   background-color: #e60023;
+   padding: 10px;
+   left: 425px;
+   top: 32px;
+   color:white;
+   font-size: 17px;
+   font-weight: bolder;
+  }
+
+  .comment-message-details {
+   display: flex;
+   flex-direction: row;
+  }
+
+  .delete-comment {
+   position: relative;
+   margin-left: 10px;
+   top: 14px;
+   font-size: 10px;
+  }
+
+  .comments-container {
+   height: 176px;
+   overflow: scroll;
+   scroll-behavior: smooth;
   }
