@@ -19,18 +19,19 @@ function CommentBar() {
 
     return (
             // <div className="pin-comment">
-              <div className="pin-comment-container"> 
+              <div className="pin-comment-container">
                 <form onSubmit={handleComment} className="comment-bar-form">
                   <div className='comment-user-icon'>
                     <i class="fa-solid fa-user"></i>
                   </div>
                   <div>
                   <input className='comment-input-values'
-                    placeholder="Comments coming soon!"
+                    placeholder="Add a comment"
+                    type='textarea'
                     value={keyword}
                     onChange={(e) => setKeyword(e.target.value)}
-                    maxLength="100"
-                    disabled
+                    maxLength="155"
+                    // disabled
                   />
                   </div>
                 </form>

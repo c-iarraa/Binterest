@@ -13,6 +13,7 @@ import AllBoards from "./components/PinBoard/AllBoards";
 import CreatePinBoard from "./components/PinBoard/CreatePinBoard";
 import UpdatePinBoard from "./components/PinBoard/UpdatePinBoard";
 import PinBoardDetails from "./components/PinBoard/PinBoardDetails";
+import CreateComment from "./components/Comments/CreateComment";
 import PinBySearch from "./components/SearchBar";
 import Footer from "./components/Footer";
 
@@ -60,6 +61,9 @@ function App() {
          </Route>
          <Route exact path='/pinboards/:boardId/details'>
            <PinBoardDetails />
+         </Route>
+         <Route exact path='/comments/:pinId'>
+           <CreateComment />
          </Route>
          <Footer />
         </Switch>
