@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { deletePin, onePin } from "../../store/pin";
 import { addJointable, getJointable } from "../../store/jointable";
 import { getAllComments, postAComment, deleteAComment } from '../../store/comment'
-// import CommentBar from "./comments/CreateComment";
 import AddToBoard from './addtoboard';
 import './PinDetails.css'
 
@@ -13,12 +12,10 @@ function PinDetails() {
     const { pinId } = useParams();
     const comments = useSelector(state => state.comments.comments)
     const commentData = Object.values(comments)
-    // console.log('pin id in component', pinId)
     const dispatch = useDispatch();
     const history = useHistory();
     const pinSelector = useSelector(state => state.pins.onePin.pin);
     const jointableSelector = useSelector(state => state.jointable.jointable);
-    // console.log('join table selector', jointableSelector);
     const sessionUserId = useSelector(state => state.session.user?.id) //session user id
     const sessionUser = useSelector(state => state.session.user);
     const [validationErrors, setValidationErrors] = useState([]);
@@ -78,7 +75,6 @@ function PinDetails() {
 
     const handleDeletion = async (commentId) => {
         const response = await dispatch(deleteAComment(commentId))
-        console.log('message', message)
         if (response) {
             message = response.message
         }
@@ -108,13 +104,7 @@ function PinDetails() {
     return (
 
         <nav className='one-pin-container'>
-            {/* <ul className="errors">
-                {validationErrors.map((error) => (
-                    <li key={error}>{error}</li>
-                ))}
-            </ul> */}
             <div className='pin-details-container'>
-                {/* <div className='pin-div'> */}
                 <div className='left-side-card'>
                     <div className='pin-image-container'>
                         <div className='single-pin-image'>
