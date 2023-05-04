@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { deletePin, onePin } from "../../store/pin";
 import { addJointable, getJointable } from "../../store/jointable";
 import { getAllComments, postAComment, deleteAComment } from '../../store/comment'
-// import CommentBar from "./comments/CreateComment";
 import AddToBoard from './addtoboard';
 import './PinDetails.css'
 
@@ -105,16 +104,12 @@ function PinDetails() {
         history.push('/')
     }
 
+
+
     return (
 
         <nav className='one-pin-container'>
-            {/* <ul className="errors">
-                {validationErrors.map((error) => (
-                    <li key={error}>{error}</li>
-                ))}
-            </ul> */}
             <div className='pin-details-container'>
-                {/* <div className='pin-div'> */}
                 <div className='left-side-card'>
                     <div className='pin-image-container'>
                         <div className='single-pin-image'>
@@ -146,11 +141,14 @@ function PinDetails() {
                         <p className='comments-header'>Comments</p>
                     </div>
                     <div className='comments-container'>
+
                         {commentData.map(comment => (
                             <div className='comments-div'>
                                 <div className='comment-details-div'>
                                     <div className='comment-message-details'>
-                                    <p className='username-comment'>{users.find(user => user?.id === comment?.user_id)?.first_name}: {comment.comment}</p>
+                                        <p className='username-comment'>{users.find(user => user?.id === comment?.user_id)?.first_name}: {comment.comment}</p>
+
+
                                         {comment?.user_id === sessionUserId &&
 
                                             <div><button className='delete-comment' onClick={() => handleDeletion(comment.id)}><b><i class="fa-regular fa-trash-can"></i></b></button></div>
