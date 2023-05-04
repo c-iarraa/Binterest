@@ -2,7 +2,7 @@ from app.models import db, Pin, environment, SCHEMA
 
 def seed_pins():
   pin1 = Pin(
-    owner_id=1, title="Air Jordan 1 Retro High OG 'Dark Mocha'", description="Jordan Brand continued their Black Toe design theme in 2020 and released the Jordan 1 High Dark Mocha, now available on StockX.", imageUrl = "https://cdn.shopify.com/s/files/1/0565/7182/2285/products/air-jordan-1-dark-mocha-555088-105-release-date_1024x1024.jpg", destinationLink = 'https://www.goat.com/sneakers/air-jordan-1-retro-high-og-555088-105')
+    owner_id=1, title="Air Jordan 1 Retro High OG 'Dark Mocha'", description="Jordan Brand continued their Black Toe design theme in 2020 and released the Jordan 1 High Dark Mocha, now available on StockX.", imageUrl = "https://cdn.shopify.com/s/files/1/0496/3971/9073/products/mocha.jpg", destinationLink = 'https://www.goat.com/sneakers/air-jordan-1-retro-high-og-555088-105')
 
     # The Dark Mocha 1 was one of the most anticipated releases in 2020 due to its familiar colorblocking that referenced two of the greatest Jordan 1s of all-time, the Jordan 1 Travis Scott and the Jordan 1 Black Toe. The upper of the Jordan 1 High Dark Mocha features a Sail leather base with black leather surrounding the toe box and Mocha suede on the heel and ankle. A black leather Swoosh, Jordan Wings logo on the ankle, and Nike Air branding on the tongue pays homage to branding that can be found on the original 1985 Jordan 1.
 
