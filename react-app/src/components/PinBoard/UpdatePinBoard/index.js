@@ -11,9 +11,7 @@ function UpdatePinBoard() {
     const dispatch = useDispatch();
     const history = useHistory();
     const ownerId = useSelector(state => state.boards.oneBoard.owner_id);
-    console.log('owner id from update component', ownerId)
     const boardId = useSelector(state => state.boards.oneBoard.id);
-    console.log('board id in update component', boardId)
     const sessionUserId = useSelector(state => state.session.user.id);
 
 
@@ -61,11 +59,6 @@ function UpdatePinBoard() {
     return (
         <section className='update-board-form'>
             <form onSubmit={handleSubmit}>
-            {/* <ul>
-                {errors.map((error, idx) => (
-                    <li key={idx}>{error}</li>
-                ))}
-            </ul> */}
 
             <div className='edit-board-container'>
                 <h1 className='edit-board-header'>Edit your board</h1>
@@ -81,7 +74,6 @@ function UpdatePinBoard() {
                         required
                         />
                     </label>
-                    {/* <h1>POSSIBLY ADD SOMETHING HERE TO MAKE A DESCRIPTION</h1> */}
                     <div className='board-delete-div'>
                         {(ownerId === sessionUserId) &&
                         <div>

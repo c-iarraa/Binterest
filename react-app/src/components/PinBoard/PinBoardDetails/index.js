@@ -14,7 +14,6 @@ function PinBoardDetails() {
     const { boardId } = useParams();
     const [validationErrors, setValidationErrors] = useState([])
     const boardSelector = useSelector(state => state.boards.oneBoard);
-    console.log('board selector in component', boardSelector)
     const sessionUserId = useSelector(state => state?.session?.user?.id);
     const ownerId = useSelector(state => state?.boards?.oneBoard?.owner_id)
     const boardpinSelector = useSelector(state => state?.jointable?.jointable);
@@ -75,7 +74,6 @@ function PinBoardDetails() {
                         }
                     </div>
                 </div>
-                {/* <h1>ADD SOMETHING HERE TO COUNT THE AMOUNT OF PINS IN BOARD</h1> */}
                 <div className='pins-in-board'>
                 {boardpinSelector.pin.map(pin => (
                 <ul>
