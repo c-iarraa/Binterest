@@ -180,7 +180,9 @@ function PinDetails() {
                                 <button
                                     className='post-comment-button'
                                     onClick={handleSubmit}
-                                ><i class="fa-regular fa-paper-plane"></i></button> }
+                                ><i class="fa-regular fa-paper-plane"></i>
+                                </button>
+                                }
                             </div>
                             </form>
                         </div>
